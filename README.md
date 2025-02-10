@@ -1,6 +1,6 @@
 # untitled-rpg
 
-## **Please Install GitLFS before working for the first time**
+## **Please install GitLFS before working for the first time**
    ```sh
    git lfs install
    ```
@@ -40,12 +40,10 @@ at the top of the file.
 - MI (Movement/Interaction System)
 - PS (Puzzle System)
 - UI (User Interface)
-- 
+  
 The only exception is the Game Manager (there will be only one; please consult with eboard if you want to edit it)
 
 ## **Git Cheatsheet**
-
-
 
 ### **Setup Your Branch**
 
@@ -65,7 +63,7 @@ The only exception is the Game Manager (there will be only one; please consult w
    ```sh
    git checkout -b new-branch-name
    ```
-# **PLEASE DO NOT RUN
+# PLEASE DO NOT RUN
    ```sh
    git add .
    ```
