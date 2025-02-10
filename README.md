@@ -72,6 +72,6 @@ The only exception is the Game Manager (there will be only one; please consult w
    ```
 Please only add files that you have worked on so that we don't run into too many merge errors.
 
-####Please make sure that you are pushing to your own branch and not the main one unless you have discussed with an eboard member first, since you will not have access to it directly
+#### Please make sure that you are pushing to your own branch and not the main one unless you have discussed with an eboard member first, since you will not have access to it directly
 
 If you have any questions, please feel free to reach out to an eboard member via our discord!
