@@ -15,8 +15,8 @@
    ```
 
 ## Table of Contents
-- [Rules](##Rules)
-- [Git Cheatsheet](##Git-Cheatsheet)
+- [Rules](##rules)
+- [Git Cheatsheet](##git-cheatsheet)
 
 ## **Rules**
 
