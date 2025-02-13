@@ -57,11 +57,11 @@ The only exception is the Game Manager (there will be only one; please consult w
    ```
 **Create a new branch**
    ```sh
-   git checkout new-branch-name
+   git checkout -b new-branch-name
    ```
 **Switch to your branch**
    ```sh
-   git checkout -b new-branch-name
+   git checkout new-branch-name
    ```
 
 ### Add your files to the main project
