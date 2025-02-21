@@ -1,0 +1,15 @@
+Game Manager
+Character
+    Movement
+    Collisions
+    Initial Interaction
+Pixel Settings
+    Tile Maps
+        Initial Setup
+        Collisions
+    Camera 
+        Follow the player
+UI
+    Start Screen -> Screen     | Unity Build Include Scene
+    Pause Menu  -> Interact in the Scene    (Freeze everything) (Pause Pefab)
+Key Binding Controller
