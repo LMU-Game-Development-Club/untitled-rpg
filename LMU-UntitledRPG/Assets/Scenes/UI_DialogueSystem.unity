@@ -468,10 +468,9 @@ MonoBehaviour:
   DialogueName:
   - Phill Introduction
   DialogueData:
-  - "{level}0{\\n} 1{:}0~HI MY NAME IS PHILL PLEASED TO MEET YOU :D{>}1{\\n} 1{.}0~*take
-    sword*{>}2{\\n} 1{.}0~Hi nice to meet you{>}3{\\n} 2{:}0~WTF THATS MY SWORD DON\u2019T
-    TAKE IT :(((({>}3{\\n} 3{:}0~YOUR WEIRD \u2026 I DONT LIKE YOU >:(((({>}3{\\n}
-    3{.}0~oh \u2026{>}end{\\n} "
+  - "1{:}0~Hi my name is Phill{>}1{n} 1{.}0~*take sword*{>}2{n} 1{.}0~That\u2019s
+    a stupid name kys{>}3{n} 2{:}0~WTF THATS MY SWORD DON\u2019T TAKE IT{>}3{n} 2{.}0~cope{>}end{n}
+    3{:}0~oh \u2026{>}end{n} "
   DialogueLevels: 00000000
 --- !u!4 &1801760886
 Transform:
