@@ -48,5 +48,6 @@ public class MI_PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 }

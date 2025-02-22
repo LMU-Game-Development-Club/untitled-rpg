@@ -14,6 +14,30 @@ TextureImporter:
   - first:
       213: 5150774871645233531
     second: PLACEHOLDER_player_mage_sheet_3
+  - first:
+      213: -5235949078196323871
+    second: PLACEHOLDER_player_mage_sheet_4
+  - first:
+      213: -3016697996773092834
+    second: PLACEHOLDER_player_mage_sheet_5
+  - first:
+      213: -7186953174830252527
+    second: PLACEHOLDER_player_mage_sheet_6
+  - first:
+      213: -9025411654163723276
+    second: PLACEHOLDER_player_mage_sheet_7
+  - first:
+      213: -7043214631724460267
+    second: PLACEHOLDER_player_mage_sheet_8
+  - first:
+      213: 5694330206547369894
+    second: PLACEHOLDER_player_mage_sheet_9
+  - first:
+      213: 1597436484068604007
+    second: PLACEHOLDER_player_mage_sheet_10
+  - first:
+      213: 4269340112730350015
+    second: PLACEHOLDER_player_mage_sheet_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,9 +137,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 225
+        y: 518
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,9 +159,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 225
+        y: 518
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,9 +181,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 225
+        y: 518
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,9 +203,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 225
+        y: 518
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,19 +225,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 225
+        y: 518
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: aba7b64eba38e2c43bf636f90b012ccc
-      internalID: 612662542
+      spriteID: 1e9f21cfd0c2657b0800000000000000
+      internalID: -5235949078196323871
       vertices: []
       indices: 
       edges: []
@@ -223,19 +247,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 151
+        y: 444
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d529e832d048598439d88705296f6bb0
-      internalID: -236379431
+      spriteID: e1215b3b7298226d0800000000000000
+      internalID: -3016697996773092834
       vertices: []
       indices: 
       edges: []
@@ -245,19 +269,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 151
+        y: 444
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 84a8c6b62aef1e84a8ad6c5612e76315
-      internalID: 1629489737
+      spriteID: 11e70e46a20d24c90800000000000000
+      internalID: -7186953174830252527
       vertices: []
       indices: 
       edges: []
@@ -267,19 +291,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 151
+        y: 444
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b02fc28a2527b0746885050d4441ec6a
-      internalID: -1624959625
+      spriteID: 4fb86e15beb4fb280800000000000000
+      internalID: -9025411654163723276
       vertices: []
       indices: 
       edges: []
@@ -289,19 +313,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 151
+        y: 444
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 15ae65734aa6987428447eac346a42c6
-      internalID: -376116872
+      spriteID: 517da37eb99714e90800000000000000
+      internalID: -7043214631724460267
       vertices: []
       indices: 
       edges: []
@@ -311,19 +335,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 151
+        y: 444
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 750b0c8157335014a8754ba5387c9be8
-      internalID: -1109376609
+      spriteID: 6af580b2723560f40800000000000000
+      internalID: 5694330206547369894
       vertices: []
       indices: 
       edges: []
@@ -333,19 +357,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 77
+        y: 370
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d80f2cc68a84e894fa0d25c8e43d539c
-      internalID: -890171148
+      spriteID: 7687828c40c3b2610800000000000000
+      internalID: 1597436484068604007
       vertices: []
       indices: 
       edges: []
@@ -355,19 +379,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 77
+        y: 370
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 854e11d5cd7958f4e9ba3c259e37ab11
-      internalID: -326413141
+      spriteID: fb16e9c663ebf3b30800000000000000
+      internalID: 4269340112730350015
       vertices: []
       indices: 
       edges: []
@@ -377,9 +401,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 77
+        y: 370
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,8 +412,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd9d66aa89c5f594580128916012778f
-      internalID: 1632847552
+      spriteID: a6d20cd098fba7a488239ccf64a44b7e
+      internalID: 1518301309
       vertices: []
       indices: 
       edges: []
@@ -399,9 +423,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 77
+        y: 370
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,8 +434,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d26daed8069abf46a6d87e2b99fbdca
-      internalID: 1852218629
+      spriteID: 5dba5ff4212d2c74cab24c6e05d59abf
+      internalID: 141479967
       vertices: []
       indices: 
       edges: []
@@ -421,9 +445,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 77
+        y: 370
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -432,8 +456,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71c4df37d0c2fa049a16e5d134f0cee2
-      internalID: -1726597416
+      spriteID: 9f52d0267ab1ab54b9548d2c74dfed79
+      internalID: 1218652362
       vertices: []
       indices: 
       edges: []
@@ -443,9 +467,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
+        y: 296
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,8 +478,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80e05ecd30236ba46b6537803ecf9574
-      internalID: 1434406374
+      spriteID: e537d12138b72394b98fcbb2df8242b1
+      internalID: 1613031471
       vertices: []
       indices: 
       edges: []
@@ -465,9 +489,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 3
+        y: 296
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,8 +500,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccdb5d39381fe634889ba2944f52a772
-      internalID: -313543445
+      spriteID: 4d9ecafce36f6c947b9e23ba9c326503
+      internalID: 276251912
       vertices: []
       indices: 
       edges: []
@@ -487,9 +511,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 3
+        y: 296
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -498,8 +522,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06e933f62e56cfe4d83189807502da3c
-      internalID: 1196010364
+      spriteID: 6e292131e7c949946a73360e1e96cad3
+      internalID: -1936254113
       vertices: []
       indices: 
       edges: []
@@ -509,9 +533,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 3
+        y: 296
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -520,8 +544,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 901cab7a6ed3cb644b2979adc8699b64
-      internalID: -433363221
+      spriteID: ab7126a82a981d74aa3868511218a24c
+      internalID: -720966189
       vertices: []
       indices: 
       edges: []
@@ -531,9 +555,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 3
+        y: 296
         width: 32
-        height: 65
+        height: 64
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -542,8 +566,888 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4423274122e91984aa131051e9617054
-      internalID: -2128561158
+      spriteID: 06fb4adcb62b7a441a3a2051a2b163e0
+      internalID: 1197583740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa39c1485b0da2b47960059ece889ef3
+      internalID: 1051973856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fb9fdf07f0f72458759de3eefc2efa
+      internalID: 785621830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198b133018795284a8d4aee866a9ecef
+      internalID: 523787400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe24e24bd5cf3a4da09a387f3f697f7
+      internalID: -1172550031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4e880557ec6334091040e847f9e2e6
+      internalID: 1152084400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71a5a768aa22e74887acaa254740cfd
+      internalID: -1743274386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62cfa3d327d15041b9037d42a6fd31d
+      internalID: 659664427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fefd514a8c61d0f45a25699821545e56
+      internalID: -347378224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c13332821264254fab22359e6114556
+      internalID: -1204189943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 222
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27272cb5dd6aa549a64c0c4bb153ed0
+      internalID: 1786803597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17a5d6a1cc45724458b6bdf0664d8e94
+      internalID: 1851558846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3b290ad0b5a094aaff48caad6adb29
+      internalID: -1269002334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99f13fcf37e840a40b5d3061acfe9559
+      internalID: 1779707516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a45cf10fda0d8448a984c9b421ddc84
+      internalID: -912593469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e8b971d527b0b43b5424e0833897ff
+      internalID: -1894864356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 514ada08fc6a0524c866a5716a865f0a
+      internalID: -649411740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_36
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59cc45ddf628b41409182fe6db51428e
+      internalID: 602558403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_37
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77293a54fccc7404ca10d458a03aca83
+      internalID: 723720178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_38
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f01f69f7a2f99543b65ae571c1a89dd
+      internalID: -1218217723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_39
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 148
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee23a33c7ad5c144bf45b8488c054e9
+      internalID: 1884130951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7c465243eb20b245b35a65033a6b3ef
+      internalID: -873247401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_41
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c53c3e9b4314f9141a858e9f9aac483a
+      internalID: 1916132204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_42
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd207e982f106d4bb1ba2f4b9c1cb32
+      internalID: 1739821086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_43
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb41e943f39c2924fa278030710b69e7
+      internalID: 2092870656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8960b1a12785c454ea32dacbf00393af
+      internalID: -417751309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_45
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca05488a4d7b6448be4e58540d515ad
+      internalID: -2091656300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_46
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd00960c922b464e936cb5fa81863fb
+      internalID: 1465554564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_47
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ead5f998400ae408dace67fc018fb1
+      internalID: 836371156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_48
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0660a7063eaf6d049af6d45e707d8a30
+      internalID: 1244601265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_49
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 74
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21996ce101602084bbf564d37624e8af
+      internalID: 528834962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf73054234b752458b6810bc9c3f498
+      internalID: 418038769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_51
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e74572022534541a09f16010bcd2d9
+      internalID: -1963121623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_52
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a241dde0f768640960af44206cb128
+      internalID: -815127147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_53
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eddc4a17da5f7b8408f20afad8a9c022
+      internalID: 738803502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_54
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496ceba689ad3154fab77c84439f29e0
+      internalID: 673436755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_55
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2794631052d5d8f4895fbc272f5f5292
+      internalID: 763165581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_56
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac23a1e16145d074e8151ef92bbda95a
+      internalID: 94953200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_57
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e47ac3fc74961b647bb1629167238afa
+      internalID: 1840455220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb45232333f78f4b912d2461f460a9a
+      internalID: -374596587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER_player_mage_sheet_59
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8355b7ef06e7d6f46829f9419ed8f95a
+      internalID: -119028305
       vertices: []
       indices: 
       edges: []
@@ -552,7 +1456,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 99ca2c51aa95a734fa78ef7a271a3cbe
+    spriteID: e3a4f8378289d194bb606227d1fa806e
     internalID: 0
     vertices: []
     indices: 
@@ -564,24 +1468,64 @@ TextureImporter:
     nameFileIdTable:
       PLACEHOLDER_player_mage_sheet_0: 2675805147365352864
       PLACEHOLDER_player_mage_sheet_1: 2782927595160741295
-      PLACEHOLDER_player_mage_sheet_10: -890171148
-      PLACEHOLDER_player_mage_sheet_11: -326413141
-      PLACEHOLDER_player_mage_sheet_12: 1632847552
-      PLACEHOLDER_player_mage_sheet_13: 1852218629
-      PLACEHOLDER_player_mage_sheet_14: -1726597416
-      PLACEHOLDER_player_mage_sheet_15: 1434406374
-      PLACEHOLDER_player_mage_sheet_16: -313543445
-      PLACEHOLDER_player_mage_sheet_17: 1196010364
-      PLACEHOLDER_player_mage_sheet_18: -433363221
-      PLACEHOLDER_player_mage_sheet_19: -2128561158
+      PLACEHOLDER_player_mage_sheet_10: 1597436484068604007
+      PLACEHOLDER_player_mage_sheet_11: 4269340112730350015
+      PLACEHOLDER_player_mage_sheet_12: 1518301309
+      PLACEHOLDER_player_mage_sheet_13: 141479967
+      PLACEHOLDER_player_mage_sheet_14: 1218652362
+      PLACEHOLDER_player_mage_sheet_15: 1613031471
+      PLACEHOLDER_player_mage_sheet_16: 276251912
+      PLACEHOLDER_player_mage_sheet_17: -1936254113
+      PLACEHOLDER_player_mage_sheet_18: -720966189
+      PLACEHOLDER_player_mage_sheet_19: 1197583740
       PLACEHOLDER_player_mage_sheet_2: -2896012248182552499
+      PLACEHOLDER_player_mage_sheet_20: 1051973856
+      PLACEHOLDER_player_mage_sheet_21: 785621830
+      PLACEHOLDER_player_mage_sheet_22: 523787400
+      PLACEHOLDER_player_mage_sheet_23: -1172550031
+      PLACEHOLDER_player_mage_sheet_24: 1152084400
+      PLACEHOLDER_player_mage_sheet_25: -1743274386
+      PLACEHOLDER_player_mage_sheet_26: 659664427
+      PLACEHOLDER_player_mage_sheet_27: -347378224
+      PLACEHOLDER_player_mage_sheet_28: -1204189943
+      PLACEHOLDER_player_mage_sheet_29: 1786803597
       PLACEHOLDER_player_mage_sheet_3: 5150774871645233531
-      PLACEHOLDER_player_mage_sheet_4: 612662542
-      PLACEHOLDER_player_mage_sheet_5: -236379431
-      PLACEHOLDER_player_mage_sheet_6: 1629489737
-      PLACEHOLDER_player_mage_sheet_7: -1624959625
-      PLACEHOLDER_player_mage_sheet_8: -376116872
-      PLACEHOLDER_player_mage_sheet_9: -1109376609
+      PLACEHOLDER_player_mage_sheet_30: 1851558846
+      PLACEHOLDER_player_mage_sheet_31: -1269002334
+      PLACEHOLDER_player_mage_sheet_32: 1779707516
+      PLACEHOLDER_player_mage_sheet_33: -912593469
+      PLACEHOLDER_player_mage_sheet_34: -1894864356
+      PLACEHOLDER_player_mage_sheet_35: -649411740
+      PLACEHOLDER_player_mage_sheet_36: 602558403
+      PLACEHOLDER_player_mage_sheet_37: 723720178
+      PLACEHOLDER_player_mage_sheet_38: -1218217723
+      PLACEHOLDER_player_mage_sheet_39: 1884130951
+      PLACEHOLDER_player_mage_sheet_4: -5235949078196323871
+      PLACEHOLDER_player_mage_sheet_40: -873247401
+      PLACEHOLDER_player_mage_sheet_41: 1916132204
+      PLACEHOLDER_player_mage_sheet_42: 1739821086
+      PLACEHOLDER_player_mage_sheet_43: 2092870656
+      PLACEHOLDER_player_mage_sheet_44: -417751309
+      PLACEHOLDER_player_mage_sheet_45: -2091656300
+      PLACEHOLDER_player_mage_sheet_46: 1465554564
+      PLACEHOLDER_player_mage_sheet_47: 836371156
+      PLACEHOLDER_player_mage_sheet_48: 1244601265
+      PLACEHOLDER_player_mage_sheet_49: 528834962
+      PLACEHOLDER_player_mage_sheet_5: -3016697996773092834
+      PLACEHOLDER_player_mage_sheet_50: 418038769
+      PLACEHOLDER_player_mage_sheet_51: -1963121623
+      PLACEHOLDER_player_mage_sheet_52: -815127147
+      PLACEHOLDER_player_mage_sheet_53: 738803502
+      PLACEHOLDER_player_mage_sheet_54: 673436755
+      PLACEHOLDER_player_mage_sheet_55: 763165581
+      PLACEHOLDER_player_mage_sheet_56: 94953200
+      PLACEHOLDER_player_mage_sheet_57: 1840455220
+      PLACEHOLDER_player_mage_sheet_58: -374596587
+      PLACEHOLDER_player_mage_sheet_59: -119028305
+      PLACEHOLDER_player_mage_sheet_6: -7186953174830252527
+      PLACEHOLDER_player_mage_sheet_7: -9025411654163723276
+      PLACEHOLDER_player_mage_sheet_8: -7043214631724460267
+      PLACEHOLDER_player_mage_sheet_9: 5694330206547369894
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
