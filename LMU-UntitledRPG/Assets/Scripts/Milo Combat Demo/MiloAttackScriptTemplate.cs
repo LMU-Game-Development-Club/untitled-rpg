@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MiloAttackScriptTemplate : MonoBehaviour
@@ -12,4 +13,9 @@ public class MiloAttackScriptTemplate : MonoBehaviour
     // turn decay is the percentage amount added to the enemy turn meter after the attack is used
     public float turnDecay;
     public string attackDescription;
+
+    public static implicit operator MiloAttackScriptTemplate(GameObject v)
+    {
+        throw new NotImplementedException();
+    }
 }
