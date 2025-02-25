@@ -468,10 +468,15 @@ MonoBehaviour:
   DialogueName:
   - Phill Introduction
   DialogueData:
-  - "1{:}0~Hi my name is Phill{>}1.1{>}1.2{n} 1.1{.}0~*take sword*{>}2{n} 1.2{.}0~That\u2019s
-    a stupid name kys{>}3{n} 2{:}0~WTF THATS MY SWORD DON\u2019T TAKE IT{>}2.1{n}
-    2.1{.}0~cope{>}end{n} 3{:}0~oh \u2026{>}end{n} "
-  DialogueLevels: 00000000
+  - "1{:}0~Hi {e:effectName}my{e:effectName} name is Phill{>}1.1{>}1.2{n} 1.1{.}1~2~3~4~5~*take
+    sword*{>}2{n} 1.2{.}0~That\u2019s a stupid name kys{>}3{n} 2{:}1~2~3~4~5~WTF
+    THATS MY SWORD DON\u2019T TAKE IT{>}2.1{n} 2.1{.}0~cope{>}end{n} 3{:}0~oh \u2026{>}end{n}~ "
+  DialogueFormatData:
+  - '1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n}
+    3:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} '
+  DialogueLevels:
+  - 
+  MCDialogueFormatData: 0:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound
 --- !u!4 &1801760886
 Transform:
   m_ObjectHideFlags: 0
