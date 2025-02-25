@@ -14,11 +14,11 @@ public class UI_DialogueController : MonoBehaviour
 
     [Header("Character Data")]
     public string MCDialogueFormatData;
-    private DialogueFormat mcFormat;
+    private DialogueFormat mcFormatData;
 
     public struct DialogueFormat {
         public DialogueFormat(string dialogueFormatData) {
-            string[] data = dialogueFormatData.Split(new string[] { "{n}" }, StringSplitOptions.None);
+            string[] data = dialogueFormatData.Split(new string[] { ":" }, StringSplitOptions.None);
             DialogueString = data[0];
             CharacterName = data[1];
             CharacterPortrait = data[2];
@@ -30,10 +30,14 @@ public class UI_DialogueController : MonoBehaviour
         public string CharacterPortrait { get; }
         public string CharacterFrame { get; }
         public string CharacterSpeechSound { get; }
+        public override string ToString()
+        {
+            return $"Name: {CharacterName}, Portrait: {CharacterPortrait}, Frame: {CharacterFrame}, SpeechSound: {CharacterSpeechSound}";
+        }
     }
 
     public struct Dialogue {
-        public Dialogue(Dictionary<string, DialogueFormat> dialogueFormat, string dialogueData) {
+        public Dialogue(Dictionary<string, DialogueFormat> dialogueFormat, DialogueFormat mcFormat, string dialogueData) {
             DialogueText = new Dictionary<string, string>();
             DialogueTransitions = new Dictionary<string, List<string>>();
             DialogueStages = new Dictionary<string, List<string>>();
@@ -46,10 +50,10 @@ public class UI_DialogueController : MonoBehaviour
 
                 if (data.Contains("{:}")) {
                     idSplit = data.Split(new string[] { "{:}" }, StringSplitOptions.None);
-                    
                     DialogueFormats[idSplit[0]] = dialogueFormat[idSplit[0]];
                 } else if (data.Contains("{.}")) {
                     idSplit = data.Split(new string[] { "{.}" }, StringSplitOptions.None);
+                    DialogueFormats[idSplit[0]] = mcFormat;
                 }
 
                 if (idSplit == null || idSplit.Length <= 1) { break; }
@@ -86,6 +90,35 @@ public class UI_DialogueController : MonoBehaviour
         public Dictionary<string, DialogueFormat> DialogueFormats { get; }
         //DialogueFormats refers to the formatData that each dialogue has (note this only contains formats for the enemy speech bubbles)
         //ALSO the string "0" should be and is reserved for the player character.
+        public override string ToString() {
+            string dialogueTextString = "";
+            string dialogueTransitionString = "";
+            string dialogueStageString = "";
+            string dialogueFormatString = "";
+
+            foreach (string key in DialogueText.Keys) {
+                dialogueTextString += $"{key}:  {DialogueText[key]}\n";
+            }
+            foreach (string key in DialogueTransitions.Keys) {
+                string allTransitions = "";
+                foreach (string transition in DialogueTransitions[key]) {
+                    allTransitions += $"{transition}    ";
+                }
+                dialogueTransitionString += $"{key}:    {allTransitions}\n";
+            }
+            foreach (string key in DialogueStages.Keys) {
+                string allStages = "";
+                foreach (string stage in DialogueStages[key]) {
+                    allStages += $"{stage}    ";
+                }
+                dialogueStageString += $"{key}:    {allStages}\n";
+            }
+            foreach (string key in DialogueFormats.Keys) {
+                dialogueFormatString += $"{key}:    {DialogueFormats[key]}\n";
+            }
+
+            return $"----------Dialogue Data----------\n\nDialogues:\n {dialogueTextString}\nTransitions:\n {dialogueTransitionString}\nStages:\n {dialogueStageString}\nFormatting:\n {dialogueFormatString}";
+        }
     }
 
     void Awake() {
@@ -93,36 +126,38 @@ public class UI_DialogueController : MonoBehaviour
         for (int i = 0; i < DialogueFormatData.Length; i++) {
             string[] dialogeFormatSplit = DialogueFormatData[i].Split(new string[] { "{n}" }, StringSplitOptions.None);
             Dictionary<string, DialogueFormat> dialogeFormatDictionary = new Dictionary<string, DialogueFormat>();
-            for (int j = 0; j < dialogeFormatSplit.Length; j++) {
+            for (int j = 0; j < dialogeFormatSplit.Length -1; j++) {
                 DialogueFormat dialogueFormat = new DialogueFormat(dialogeFormatSplit[j]);
                 dialogeFormatDictionary[dialogueFormat.DialogueString] = dialogueFormat;
             }
             allDialogueFormats.Add(dialogeFormatDictionary);
         }
+        mcFormatData = new DialogueFormat(MCDialogueFormatData);
 
         dialogues = new Dialogue[DialogueData.Length];
         for (int i = 0; i < DialogueData.Length; i++) {
-            Dialogue dialogue = new Dialogue(allDialogueFormats[i], DialogueData[i]);
+            Dialogue dialogue = new Dialogue(allDialogueFormats[i], mcFormatData, DialogueData[i]);
             dialogues[i] = dialogue;
         }
 
-        mcFormat = new DialogueFormat(MCDialogueFormatData);
     }
 
     void Start() {
         StartDialogue("Phill Introduction");
     }
 
-    public void StartDialogue(string characterName) {
+    public void StartDialogue(string dialogueName) {
         for (int i = 0; i < DialogueName.Length; i++) {
-            if (characterName == DialogueName[i]) {
+            if (dialogueName == DialogueName[i]) {
                 StartDialogue(i);
                 return;
             }
         }
-        Debug.Log($"\"{characterName}\" not found in CharacterNames");
+        Debug.Log($"\"{dialogueName}\" not found in DialogueNames");
     }
-    public void StartDialogue(int characterIndex) {
+    public void StartDialogue(int dialogueIndex) {
+        Debug.Log($"Playing Dialogue {DialogueName[dialogueIndex]}");
+        Debug.Log(dialogues[dialogueIndex]);
         throw new NotImplementedException();
     }
 }

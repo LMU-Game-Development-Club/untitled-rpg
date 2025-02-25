@@ -475,8 +475,8 @@ MonoBehaviour:
   - '1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n}
     3:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} '
   DialogueLevels:
-  - 
-  MCDialogueFormatData: 0:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound
+  - 0
+  MCDialogueFormatData: 0:MCName:MCPortrait:MCFrame:MCSpeechSound
 --- !u!4 &1801760886
 Transform:
   m_ObjectHideFlags: 0
