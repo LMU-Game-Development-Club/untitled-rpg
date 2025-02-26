@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &214493048755622399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805559315884599934, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411670417949416225, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: m_Name
+      value: Milo Example Enemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355353774131551473, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355353774131551473, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: enemyName
+      value: Red Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355353774131551473, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355353774131551473, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: attacksPerTurn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355353774131551473, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: enemyDescription
+      value: Idk he just is
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355353774131551473, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355353774131551473, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
+      propertyPath: 'attacks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5611221198518234868, guid: 69ecbbb4da12b4880920fdca47c1b0da, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc02994c7c83d41c4810a8b87d553194, type: 3}
