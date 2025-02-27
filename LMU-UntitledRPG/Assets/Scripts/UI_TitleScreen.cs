@@ -22,7 +22,7 @@ public class MenuButtons : MonoBehaviour
     void PlayGame()
     {
         Debug.Log("Playing the Game");
-        SceneManager.LoadScene(sceneName:"TempGame");
+        SceneManager.LoadScene(sceneName:"Unknown");
     }
 
     void OpenSettings() 
@@ -36,6 +36,9 @@ public class MenuButtons : MonoBehaviour
         PlayButton.onClick.RemoveListener(PlayGame);
         SettingsButton.onClick.RemoveListener(OpenSettings);
         QuitButton.onClick.RemoveListener(QuitGame);
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
         Application.Quit();
     }
 }
