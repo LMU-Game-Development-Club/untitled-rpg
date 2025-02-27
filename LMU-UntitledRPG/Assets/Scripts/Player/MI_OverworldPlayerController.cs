@@ -12,6 +12,7 @@ public class MI_OverworldPlayerController : MonoBehaviour
     [Header("Player Settings")]
     public float interactDistance = 1.0f; // Can be changed in editor. 1.0 recommended for now.
     public float moveSpeed = 4.2f; // Can be changed in editor. 4.2 is the default speed for now.
+    public LayerMask interactionLayerMask; // The layer mask for the interaction raycast. Set in editor to layer of interactable objects only.
 
     [Header("ReadOnly Debug Data")]
     [SerializeField]
@@ -62,18 +63,21 @@ public class MI_OverworldPlayerController : MonoBehaviour
     private void Interaction() // Actual interaction function
     {
         Vector2 directionVector = GetDirectionVector();
-        Vector3 startPosition = transform.position + (Vector3)directionVector * 0.5f; // Offset the start position to avoid self-interaction
+        Vector3 startPosition = transform.position + (Vector3)directionVector * 0.75f; // Offset the start position to avoid self-interaction
 
         // TODO: Delete this debug line
         Debug.DrawRay(startPosition, directionVector * interactDistance, Color.red, 1f);
 
         // Cast a ray in the direction the player is facing
-        RaycastHit2D hit = Physics2D.Raycast(startPosition, directionVector, interactDistance);
+        RaycastHit2D hit = Physics2D.Raycast(startPosition, directionVector, interactDistance, interactionLayerMask);
 
         if (hit)
         {
             Debug.Log(hit.collider.name); // TODO: Delete this debug line
-            // TODO HERE: Check if whatever gets hit implements IIinteractable, then call it's interact function.
+            if (hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable))
+            {
+                interactable.Interact();
+            }
         }
     }
 

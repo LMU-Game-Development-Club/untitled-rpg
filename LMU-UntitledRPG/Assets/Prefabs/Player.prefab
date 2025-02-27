@@ -49,10 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371793e3889c5e043a44fc75568140e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_interactDistance: 1
-  m_moveSpeed: 4.2
-  m_direction: 0
-  m_isInteracting: 0
+  interactDistance: 1
+  moveSpeed: 4.2
+  interactionLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _direction: 0
+  _isInteracting: 0
 --- !u!114 &8881738002586368245
 MonoBehaviour:
   m_ObjectHideFlags: 0
