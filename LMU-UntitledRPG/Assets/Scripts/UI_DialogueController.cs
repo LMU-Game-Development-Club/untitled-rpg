@@ -1,9 +1,19 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_DialogueController : MonoBehaviour
 {
+    [Header("Gameobject Refs")]
+    public UI_DialogueAssets DialogueFormatAssets;
+    public GameObject DialogueCanvas;
+    public Image DialoguePortrait;
+    public Image DialogueFrame;
+    public TextMeshProUGUI DialogueText;
+    public UI_DialogueTextClick TextDialogueClick;
+
     [Header("Dialogue Data")]
     public string[] DialogueName;
     public string[] DialogueData;
@@ -15,6 +25,11 @@ public class UI_DialogueController : MonoBehaviour
     [Header("Character Data")]
     public string MCDialogueFormatData;
     private DialogueFormat mcFormatData;
+
+    private bool nextDialogue;
+    private string currentDialogueKey;
+    private Dialogue currentDialogue;
+    private DialogueFormat currentDialogueFormat;
 
     public struct DialogueFormat {
         public DialogueFormat(string dialogueFormatData) {
@@ -47,13 +62,16 @@ public class UI_DialogueController : MonoBehaviour
             for (int line = 0; line < lineData.Length; line++) {
                 string data = lineData[line];
                 string[] idSplit = null;
+                string idString = "none";
 
                 if (data.Contains("{:}")) {
                     idSplit = data.Split(new string[] { "{:}" }, StringSplitOptions.None);
-                    DialogueFormats[idSplit[0]] = dialogueFormat[idSplit[0]];
+                    idString = idSplit[0].Trim();
+                    DialogueFormats[idString] = dialogueFormat[idSplit[0]];
                 } else if (data.Contains("{.}")) {
                     idSplit = data.Split(new string[] { "{.}" }, StringSplitOptions.None);
-                    DialogueFormats[idSplit[0]] = mcFormat;
+                    idString = idSplit[0].Trim();
+                    DialogueFormats[idString] = mcFormat;
                 }
 
                 if (idSplit == null || idSplit.Length <= 1) { break; }
@@ -61,24 +79,24 @@ public class UI_DialogueController : MonoBehaviour
                 string[] transitionSplit = idSplit[1].Split(new string[] { "{>}" }, StringSplitOptions.None);
                 
                 // string transitionsAvaliable = "";
-                DialogueTransitions[idSplit[0]] = new List<string>();
+                DialogueTransitions[idString] = new List<string>();
                 for (int i = 1; i < transitionSplit.Length; i++) {
-                    DialogueTransitions[idSplit[0]].Add(transitionSplit[i]);
+                    DialogueTransitions[idString].Add(transitionSplit[i]);
                     // transitionsAvaliable += $"Transition {transitionSplit[i]} ";
                 }
-                // Debug.Log($"{idSplit[0]}: {transitionSplit[0]} -> {transitionsAvaliable}");
+                // Debug.Log($"{idString}: {transitionSplit[0]} -> {transitionsAvaliable}");
 
                 string[] stageSplit = transitionSplit[0].Split(new string[] { "~" }, StringSplitOptions.None);
 
                 // string stagesRequired = "";
-                DialogueStages[idSplit[0]] = new List<string>();
+                DialogueStages[idString] = new List<string>();
                 for (int i = 0; i < stageSplit.Length -1; i++) {
-                    DialogueStages[idSplit[0]].Add(stageSplit[i]);
+                    DialogueStages[idString].Add(stageSplit[i]);
                     // stagesRequired += $"Stage {stageSplit[i]},";
                 }
-                // Debug.Log($"{idSplit[0]}: {stagesRequired} required for {stageSplit[1]}");
+                // Debug.Log($"{idString}: {stagesRequired} required for {stageSplit[1]}");
 
-                DialogueText[idSplit[0]] = stageSplit[stageSplit.Length -1];
+                DialogueText[idString] = stageSplit[stageSplit.Length -1];
             }
         }
         public Dictionary<string, string> DialogueText { get; }
@@ -140,10 +158,20 @@ public class UI_DialogueController : MonoBehaviour
             dialogues[i] = dialogue;
         }
 
+        nextDialogue = false;
     }
 
     void Start() {
+        TextDialogueClick.onTextboxClick.AddListener(OnTextBoxClick);
         StartDialogue("Phill Introduction");
+    }
+
+    private void switchToDialogueKey(Dialogue dialogue, DialogueFormat dialogueFormat, string dialogueKey) {
+        int dialoguePortraitIndex = Array.IndexOf(DialogueFormatAssets.CharacterPortraitIds, dialogueFormat.CharacterPortrait);
+        DialoguePortrait.sprite = DialogueFormatAssets.CharacterPortraits[dialoguePortraitIndex];
+        int dialogueFrameIndex = Array.IndexOf(DialogueFormatAssets.CharacterFrameIds, dialogueFormat.CharacterFrame);
+        DialogueFrame.sprite = DialogueFormatAssets.CharacterFrames[dialogueFrameIndex];
+        DialogueText.text = dialogue.DialogueText[dialogueKey];
     }
 
     public void StartDialogue(string dialogueName) {
@@ -158,6 +186,29 @@ public class UI_DialogueController : MonoBehaviour
     public void StartDialogue(int dialogueIndex) {
         Debug.Log($"Playing Dialogue {DialogueName[dialogueIndex]}");
         Debug.Log(dialogues[dialogueIndex]);
-        throw new NotImplementedException();
+
+        currentDialogueKey = "start";
+        currentDialogue = dialogues[dialogueIndex];
+        currentDialogueFormat = dialogues[dialogueIndex].DialogueFormats[currentDialogueKey];
+
+        switchToDialogueKey(currentDialogue, currentDialogueFormat, currentDialogueKey);
+    }
+
+    private void OnTextBoxClick() {
+        nextDialogue = true;
+        Debug.Log("On CLicked");
+    }
+
+    void Update() {
+        if (nextDialogue) {
+            nextDialogue = false;
+            currentDialogueKey = currentDialogue.DialogueTransitions[currentDialogueKey][0];
+            if (currentDialogueKey == "end") {
+                Debug.Log("Dialogue ended");
+                DialogueCanvas.SetActive(false);
+                return;
+            }
+            switchToDialogueKey(currentDialogue, currentDialogueFormat, currentDialogueKey);
+        }
     }
 }
