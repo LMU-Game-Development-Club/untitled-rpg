@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,10 +24,10 @@ public class UI_DialogueController : MonoBehaviour
     private GameObject dialogueStartButton; 
 
     [Header("Dialogue Data")]
-    public string[] DialogueName;
+    public string[] DialogueNames;
     public string[] DialogueData;
     public string[] DialogueFormatData;
-    public string[] DialogueLevels;
+    public string[] DialogueStages;
     private Dialogue[] dialogues;
     private List<Dictionary<string, DialogueFormat>> allDialogueFormats;
 
@@ -34,11 +35,12 @@ public class UI_DialogueController : MonoBehaviour
     public string MCDialogueFormatData;
     private DialogueFormat mcFormatData;
 
+
     private bool nextDialogue;
+    private Dialogue currentDialogue;
     private string currentDialogueLineKey;
     private int currentDialogueIndex;
-    private Dialogue currentDialogue;
-    private DialogueFormat currentDialogueFormat;
+    private DialogueFormat currentDialogueLineFormat;
 
     private Regex regex;
 
@@ -64,11 +66,12 @@ public class UI_DialogueController : MonoBehaviour
 
     public struct Dialogue {
         public Dialogue(Dictionary<string, DialogueFormat> dialogueFormat, DialogueFormat mcFormat, string dialogueData) {
-            DialogueStarts = new List<string>();
             DialogueText = new Dictionary<string, string>();
             DialogueTransitions = new Dictionary<string, List<string>>();
             DialogueStages = new Dictionary<string, List<string>>();
             DialogueFormats = new Dictionary<string, DialogueFormat> {};
+            DialogueStarts = new List<string>();
+            DialogueResponses = new HashSet<string>();
 
             string[] lineData = dialogueData.Split(new string[] { "{n}" }, StringSplitOptions.None);
             for (int line = 0; line < lineData.Length; line++) {
@@ -89,6 +92,7 @@ public class UI_DialogueController : MonoBehaviour
                     idSplit = data.Split(new string[] { "{.}" }, StringSplitOptions.None);
                     idString = idSplit[0].Trim();
                     DialogueFormats[idString] = mcFormat;
+                    DialogueResponses.Add(idString);
                 }
 
                 if (idSplit == null || idSplit.Length <= 1) { break; }
@@ -127,6 +131,8 @@ public class UI_DialogueController : MonoBehaviour
         //ALSO the string "0" should be and is reserved for the player character.
         public List<string> DialogueStarts { get; }
         //The starting points for dialogue
+        public HashSet<string> DialogueResponses { get; }
+        //Simply to keep track of which keys are responses
         
         public override string ToString() {
             string dialogueStartString = "";
@@ -186,29 +192,32 @@ public class UI_DialogueController : MonoBehaviour
         dialogueText.text = dialogue.DialogueText[dialogueKey];
     }
 
-    private string filterKeyByDialogueLevel(Dialogue dialogue, List<string> transitions, int dialogueIndex) {
-        string currentStage = DialogueLevels[dialogueIndex];
+    private void setResponses(Dialogue dialogue, List<string> dialogueResponseKeys) {
+        
+    }
+
+    private List<string> filterKeyByDialogueLevel(Dialogue dialogue, List<string> transitions, int dialogueIndex) {
+        string currentStage = DialogueStages[dialogueIndex];
+        List<string> filteredResponses = new List<string>();
 
         foreach (string transitionKey in transitions) {
-            if (transitionKey == "end") { return transitionKey; }
+            if (transitionKey == "end") { return new List<string>(){"end"}; }
+
             List<string> transitionStages = dialogue.DialogueStages[transitionKey];
             if (transitionStages.Contains(currentStage)) {
-                return transitionKey;
+                filteredResponses.Add(transitionKey);
             }
         }
 
-        if (DebugMode) {
-            Debug.Log("Key could not be found");
-        }
-        return null;
+        return filteredResponses;
     }
 
     public void StartDialogue(string dialogueName) {
-        for (int i = 0; i < DialogueName.Length; i++) {
-            if (DebugMode) { Debug.Log($"Comparing \"{dialogueName}\" and \"{DialogueName[i]}\""); }
+        for (int i = 0; i < DialogueNames.Length; i++) {
+            if (DebugMode) { Debug.Log($"Comparing \"{dialogueName}\" and \"{DialogueNames[i]}\""); }
             
             string a = regex.Replace(dialogueName, "");
-            string b = regex.Replace(DialogueName[i], "");
+            string b = regex.Replace(DialogueNames[i], "");
 
             if (a == b) {
                 StartDialogue(i);
@@ -218,22 +227,26 @@ public class UI_DialogueController : MonoBehaviour
         if (DebugMode) { Debug.Log($"\"{dialogueName}\" not found in DialogueNames"); }
     }
     public void StartDialogue(int dialogueIndex) {
-        Dialogue dialogue = dialogues[dialogueIndex];
         
         if (DebugMode) {
-            Debug.Log($"Playing Dialogue {DialogueName[dialogueIndex]}");
+            Debug.Log($"Playing Dialogue {DialogueNames[dialogueIndex]}");
             Debug.Log(dialogues[dialogueIndex]);
 
             setAllInactive(dialogueInputField, dialogueStartButton);
         }
         setAllActive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
 
-        currentDialogueLineKey = filterKeyByDialogueLevel(dialogue, dialogue.DialogueStarts, dialogueIndex);
+        nextDialogue = false;
+        currentDialogue = dialogues[dialogueIndex];
         currentDialogueIndex = dialogueIndex;
-        currentDialogue = dialogue;
-        currentDialogueFormat = dialogue.DialogueFormats[currentDialogueLineKey];
+        List<string> startingDialogues = filterKeyByDialogueLevel(currentDialogue, currentDialogue.DialogueStarts, dialogueIndex);
+        if (startingDialogues.Count == 0) {
+            throw new Exception($"No starting lines found in {DialogueNames[dialogueIndex]} current dialogue stage {DialogueStages[dialogueIndex]}");
+        }
+        currentDialogueLineKey = startingDialogues[0];
+        currentDialogueLineFormat = currentDialogue.DialogueFormats[currentDialogueLineKey];
 
-        setNewDialogueLine(currentDialogue, currentDialogueFormat, currentDialogueLineKey);
+        setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
     }
 
     void Awake() {
@@ -289,18 +302,46 @@ public class UI_DialogueController : MonoBehaviour
     void Update() {
         if (nextDialogue) {
             nextDialogue = false;
-            currentDialogueLineKey = filterKeyByDialogueLevel(currentDialogue, currentDialogue.DialogueTransitions[currentDialogueLineKey], currentDialogueIndex);
-            if (currentDialogueLineKey == "end") {
+            List<string> filteredTransitions = filterKeyByDialogueLevel(currentDialogue, currentDialogue.DialogueTransitions[currentDialogueLineKey], currentDialogueIndex);
+
+            if (filteredTransitions.Count == 0) { throw new Exception($"No valid transitions found for Dialogue {DialogueNames[currentDialogueIndex]} line {currentDialogueLineKey}"); }
+            if (filteredTransitions[0] == "end") { 
                 if (DebugMode) {
                     Debug.Log("Dialogue ended");
                     setAllActive(dialogueInputField, dialogueStartButton);
                     setAllInactive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
                 } else { 
                     setAllInactive(DialogueCanvas);
-                }
+                }    
                 return;
             }
-            setNewDialogueLine(currentDialogue, currentDialogueFormat, currentDialogueLineKey);
+
+            bool isResponse = true;
+            foreach (string key in filteredTransitions) {
+                isResponse = isResponse && currentDialogue.DialogueResponses.Contains(key);
+            }
+
+            if (!isResponse) {
+                currentDialogueLineKey = filteredTransitions[0];
+                currentDialogueLineFormat = currentDialogue.DialogueFormats[currentDialogueLineKey];
+                setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
+            } else {
+                setResponses(currentDialogue, filteredTransitions);
+            }
         }
     }
 }
+
+/*
+TODO
+- dialogue responses
+- addSound
+- textEffects by making sure each character if its own Textmeshpro thingy
+- character pooling maybe if it is too laggy
+- check at the start to make sure dialoguedata/dialogueformatdata is valid
+- tool to make dialogueData and dialogueFormats
+- custom talking animations!??!?
+
+Um do this
+- why tf did u add mcFormatData the player isnt supposed to fucking be shown in the dialogue
+*/

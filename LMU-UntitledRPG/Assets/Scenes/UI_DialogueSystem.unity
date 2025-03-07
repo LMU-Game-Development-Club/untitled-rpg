@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 592640412}
   - component: {fileID: 592640414}
   - component: {fileID: 592640413}
+  - component: {fileID: 592640415}
   m_Layer: 5
   m_Name: DialoguePortrait
   m_TagString: Untagged
@@ -330,6 +331,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592640411}
   m_CullTransparentMesh: 1
+--- !u!114 &592640415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592640411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1921801053cc9cd44b149235232e561b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &794412470
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +865,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Testing test test
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1114,9 +1132,19 @@ MonoBehaviour:
   CharacterPortraitIds:
   - MCPortrait
   - CharacterPortrait
+  - CharacterDiesPortrait
+  - CharacterTalk1Portrait
+  - CharacterTalk2Portrait
+  - CharacterTalk3Portrait
+  - CharacterTalk4Portrait
   CharacterPortraits:
   - {fileID: 21300000, guid: 053a94229d2a3c849948a7e689a9a80e, type: 3}
   - {fileID: 21300000, guid: a189e93ec8a79434eba07e3fc2faff8c, type: 3}
+  - {fileID: 21300000, guid: 3f68f90275fbbd144afadb2f5fec98e8, type: 3}
+  - {fileID: 21300000, guid: d901b246a15681040b64dc3150874952, type: 3}
+  - {fileID: 21300000, guid: 9f8864f03b7f6cd4fbca5fe209a17e45, type: 3}
+  - {fileID: 21300000, guid: be4556de8966ebc4392dec76c6a8e60a, type: 3}
+  - {fileID: 21300000, guid: a41e55b108ac289448888e5eea0fabb3, type: 3}
   CharacterFrameIds:
   - MCFrame
   - CharacterFrame
@@ -1126,7 +1154,9 @@ MonoBehaviour:
   CharacterSpeechSoundIds:
   - MCSpeechSound
   - CharacterSpeechSound
+  - CharacterDeathSound
   CharacterSpeechSounds:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!4 &1758251322
@@ -1283,23 +1313,36 @@ MonoBehaviour:
   DebugMode: 1
   DialogueFormatAssets: {fileID: 1758251321}
   DialogueCanvas: {fileID: 1774342034}
-  DialogueName:
-  - Phill_Introduction
-  - Phil_End
+  DialogueNames:
+  - Phill Introduction
+  - Phill End
+  - Phill Talk
   DialogueData:
-  - "1{;}0~Hi {e:effectName}my{e:effectName} name is Phill{>}1.1{>}1.2{n} 1.1{.}1~2~3~4~5~*take
-    sword*{>}2{n} 1.2{.}0~That\u2019s a stupid name kys{>}3{n} 2{:}1~2~3~4~5~WTF
+  - "1{;}0~Hi {e:effectName}my{e:effectName} name is Phill{>}1.1{>}1.2{n} 1.1{.}0~1~2~3~otherLevel~testLevel~*take
+    sword*{>}2{n} 1.2{.}0~That\u2019s a stupid name kys{>}3{n} 2{:}0~1~2~3~4~5~WTF
     THATS MY SWORD DON\u2019T TAKE IT{>}2.1{n} 2.1{.}0~cope{>}end{n} 3{:}0~oh \u2026{>}end{n} "
   - '1{;}0~canKillPhill~I HATE YOU{>}1.1{>}wtf{n} 1.1{.}0~ok{>}2{n} wtf{.}canKillPhill~*kill
-    phill*{>}youKilledPhill{n} 2{:}0~*phill kills you*{>}end{n} youKilledPhill{:}canKillPhill~*dies*{>}end{n} '
+    phill*{>}youKilledPhill{n} 2{:}0~canKillPhill~*phill kills you*{>}end{n} youKilledPhill{:}canKillPhill~*dies*{>}end{n} '
+  - '1{;}0~blahblahblahblah{>}2{n} 2{:}0~blah blah blah{>}3{n} 3{:}0~blahasdfasdhfu{>}4{n}
+    4{:}0~afleiowuhas{>}end{n} test1{;}test~hi{>}test2{n} test2{:}test~hi hi hi hi{>}test3{n}
+    test3{:}test~hi hi hih ih ih ihi{>}test4{n} test4{:}test~hiiiiii{>}end{n} '
   DialogueFormatData:
   - '1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n}
     3:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} '
   - '1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} wtf:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n}
     2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} youKilledPhill:CharacterName:CharacterDiesPortrait:CharacterFrame:CharacterDeathSound{n} '
-  DialogueLevels:
+  - '1:CharacterName:CharacterTalk1Portrait:CharacterFrame:CharacterSpeechSound{n}
+    2:CharacterName:CharacterTalk2Portrait:CharacterFrame:CharacterSpeechSound{n}
+    3:CharacterName:CharacterTalk3Portrait:CharacterFrame:CharacterSpeechSound{n}
+    4:CharacterName:CharacterTalk4Portrait:CharacterFrame:CharacterSpeechSound{n}
+    test1:CharacterName:CharacterTalk1Portrait:CharacterFrame:CharacterSpeechSound{n}
+    test2:CharacterName:CharacterTalk2Portrait:CharacterFrame:CharacterSpeechSound{n}
+    test3:CharacterName:CharacterTalk3Portrait:CharacterFrame:CharacterSpeechSound{n}
+    test4:CharacterName:CharacterTalk4Portrait:CharacterFrame:CharacterSpeechSound{n} '
+  DialogueStages:
   - 0
   - canKillPhill
+  - 0
   MCDialogueFormatData: '1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n}
     2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 3:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} '
 --- !u!4 &1801760886
