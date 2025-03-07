@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: a41e55b108ac289448888e5eea0fabb3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3933133769380923252
+    second: CharacterTalk4Portrait_0
+  - first:
+      213: 7201546894340368534
+    second: CharacterTalk4Portrait_1
+  - first:
+      213: -2245852165404606183
+    second: CharacterTalk4Portrait_2
+  - first:
+      213: -5739691779718690473
+    second: CharacterTalk4Portrait_3
+  - first:
+      213: 8411589284586466663
+    second: CharacterTalk4Portrait_4
+  - first:
+      213: 5705790523975425292
+    second: CharacterTalk4Portrait_5
+  - first:
+      213: -1986382687206941730
+    second: CharacterTalk4Portrait_6
+  - first:
+      213: -9124717616675358926
+    second: CharacterTalk4Portrait_7
+  - first:
+      213: -861499034401287986
+    second: CharacterTalk4Portrait_8
+  - first:
+      213: -6836456436341277175
+    second: CharacterTalk4Portrait_9
+  - first:
+      213: 2725166896638445746
+    second: CharacterTalk4Portrait_10
+  - first:
+      213: -5440781468722130719
+    second: CharacterTalk4Portrait_11
+  - first:
+      213: -8980694450717569190
+    second: CharacterTalk4Portrait_12
+  - first:
+      213: 8111063114723717443
+    second: CharacterTalk4Portrait_13
+  - first:
+      213: -6176899033241112208
+    second: CharacterTalk4Portrait_14
+  - first:
+      213: 6505729849530908170
+    second: CharacterTalk4Portrait_15
+  - first:
+      213: -6130206461921308511
+    second: CharacterTalk4Portrait_16
+  - first:
+      213: -2764267371823491199
+    second: CharacterTalk4Portrait_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 264
+        width: 56
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4770b0a135c459630800000000000000
+      internalID: 3933133769380923252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 268
+        width: 163
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698a976beb801f360800000000000000
+      internalID: 7201546894340368534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 262
+        width: 78
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9114407ca5125d0e0800000000000000
+      internalID: -2245852165404606183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_3
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 177
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75943ad8cb48850b0800000000000000
+      internalID: -5739691779718690473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_4
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d224843e7fbb470800000000000000
+      internalID: 8411589284586466663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_5
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 179
+        width: 95
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0d5850404a0f2f40800000000000000
+      internalID: 5705790523975425292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_6
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb5b056873fe64e0800000000000000
+      internalID: -1986382687206941730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_7
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 174
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237f0562cad7e5180800000000000000
+      internalID: -9124717616675358926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_8
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 109
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec05b2051375b04f0800000000000000
+      internalID: -861499034401287986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_9
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 142
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90ef17d97170021a0800000000000000
+      internalID: -6836456436341277175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_10
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 133
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8c9cb9adcb1d520800000000000000
+      internalID: 2725166896638445746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_11
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 157
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e01a48a4167e74b0800000000000000
+      internalID: -5440781468722130719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_12
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 147
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f48a49af92e5380800000000000000
+      internalID: -8980694450717569190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 160
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34171e7bde8409070800000000000000
+      internalID: 8111063114723717443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_14
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 118
+        width: 85
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 071b53e4e0f374aa0800000000000000
+      internalID: -6176899033241112208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_15
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 156
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ef1fd44def84a50800000000000000
+      internalID: 6505729849530908170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_16
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 140
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0506db3b12deaa0800000000000000
+      internalID: -6130206461921308511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterTalk4Portrait_17
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 126
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1871246987953a9d0800000000000000
+      internalID: -2764267371823491199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CharacterTalk4Portrait_0: 3933133769380923252
+      CharacterTalk4Portrait_1: 7201546894340368534
+      CharacterTalk4Portrait_10: 2725166896638445746
+      CharacterTalk4Portrait_11: -5440781468722130719
+      CharacterTalk4Portrait_12: -8980694450717569190
+      CharacterTalk4Portrait_13: 8111063114723717443
+      CharacterTalk4Portrait_14: -6176899033241112208
+      CharacterTalk4Portrait_15: 6505729849530908170
+      CharacterTalk4Portrait_16: -6130206461921308511
+      CharacterTalk4Portrait_17: -2764267371823491199
+      CharacterTalk4Portrait_2: -2245852165404606183
+      CharacterTalk4Portrait_3: -5739691779718690473
+      CharacterTalk4Portrait_4: 8411589284586466663
+      CharacterTalk4Portrait_5: 5705790523975425292
+      CharacterTalk4Portrait_6: -1986382687206941730
+      CharacterTalk4Portrait_7: -9124717616675358926
+      CharacterTalk4Portrait_8: -861499034401287986
+      CharacterTalk4Portrait_9: -6836456436341277175
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
