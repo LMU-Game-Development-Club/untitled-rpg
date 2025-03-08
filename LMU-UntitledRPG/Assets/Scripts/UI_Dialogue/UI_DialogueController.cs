@@ -32,10 +32,9 @@ public class UI_DialogueController : MonoBehaviour
     private Dialogue[] dialogues;
     private List<Dictionary<string, DialogueFormat>> allDialogueFormats;
 
-    [Header("Character Data")]
-    public string MCDialogueFormatData;
-    private DialogueFormat mcFormatData;
 
+    private string mcDialogueFormatData = "1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 3:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} ";
+    private DialogueFormat mcFormatData;
 
     private bool nextDialogue;
     private Dialogue currentDialogue;
@@ -324,7 +323,7 @@ public class UI_DialogueController : MonoBehaviour
             }
             allDialogueFormats.Add(dialogeFormatDictionary);
         }
-        mcFormatData = new DialogueFormat(MCDialogueFormatData);
+        mcFormatData = new DialogueFormat(mcDialogueFormatData);
 
         dialogues = new Dialogue[DialogueData.Length];
         for (int i = 0; i < DialogueData.Length; i++) {
@@ -371,14 +370,10 @@ public class UI_DialogueController : MonoBehaviour
 
 /*
 TODO
-- dialogue responses
 - addSound
 - textEffects by making sure each character if its own Textmeshpro thingy
 - character pooling maybe if it is too laggy
 - check at the start to make sure dialoguedata/dialogueformatdata is valid
 - tool to make dialogueData and dialogueFormats
 - custom talking animations!??!?
-
-Um do this
-- why tf did u add mcFormatData the player isnt supposed to fucking be shown in the dialogue
 */
