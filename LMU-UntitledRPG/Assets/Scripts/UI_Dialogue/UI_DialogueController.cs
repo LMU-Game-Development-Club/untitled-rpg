@@ -14,7 +14,10 @@ public class UI_DialogueController : MonoBehaviour
     [Header("Gameobject Refs")]
     public UI_DialogueAssets DialogueFormatAssets;
     public GameObject DialogueCanvas;
+<<<<<<< HEAD
     public GameObject DialogueResponsePrefab;
+=======
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 
     private Image dialoguePortrait;
     private Image dialogueFrame;
@@ -32,20 +35,31 @@ public class UI_DialogueController : MonoBehaviour
     private Dialogue[] dialogues;
     private List<Dictionary<string, DialogueFormat>> allDialogueFormats;
 
+<<<<<<< HEAD
 
     private string mcDialogueFormatData = "1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 3:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} ";
     private DialogueFormat mcFormatData;
 
+=======
+    [Header("Character Data")]
+    public string MCDialogueFormatData;
+    private DialogueFormat mcFormatData;
+
+
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
     private bool nextDialogue;
     private Dialogue currentDialogue;
     private string currentDialogueLineKey;
     private int currentDialogueIndex;
     private DialogueFormat currentDialogueLineFormat;
 
+<<<<<<< HEAD
     private List<GameObject> activeDialogueResponseButtons;
     private bool responseClicked;
     private bool responsesSet;
 
+=======
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
     private Regex regex;
 
     public struct DialogueFormat {
@@ -186,7 +200,13 @@ public class UI_DialogueController : MonoBehaviour
     }
 
     private void setNewDialogueLine(Dialogue dialogue, DialogueFormat dialogueFormat, string dialogueKey) {
+<<<<<<< HEAD
         if (DebugMode) { Debug.Log($"Set dialogueLine to {dialogueKey}"); }
+=======
+        if (DebugMode) {
+            Debug.Log($"Set dialogueLine to {dialogueKey}");
+        }
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
         int dialoguePortraitIndex = Array.IndexOf(DialogueFormatAssets.CharacterPortraitIds, dialogueFormat.CharacterPortrait);
         dialoguePortrait.sprite = DialogueFormatAssets.CharacterPortraits[dialoguePortraitIndex];
         int dialogueFrameIndex = Array.IndexOf(DialogueFormatAssets.CharacterFrameIds, dialogueFormat.CharacterFrame);
@@ -195,6 +215,7 @@ public class UI_DialogueController : MonoBehaviour
     }
 
     private void setResponses(Dialogue dialogue, List<string> dialogueResponseKeys) {
+<<<<<<< HEAD
         if (DebugMode) { Debug.Log($"Setting responses for {string.Join(", ", dialogueResponseKeys)}"); }
         Vector3 buttonPosition = new Vector3(556.996f, 18f, 0f);
         float yOffsetIncrement = 120f;
@@ -209,6 +230,9 @@ public class UI_DialogueController : MonoBehaviour
             buttonPosition.y += yOffsetIncrement;
         }
         responsesSet = true;
+=======
+        
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
     }
 
     private List<string> filterKeyByDialogueLevel(Dialogue dialogue, List<string> transitions, int dialogueIndex) {
@@ -229,6 +253,11 @@ public class UI_DialogueController : MonoBehaviour
 
     public void StartDialogue(string dialogueName) {
         for (int i = 0; i < DialogueNames.Length; i++) {
+<<<<<<< HEAD
+=======
+            if (DebugMode) { Debug.Log($"Comparing \"{dialogueName}\" and \"{DialogueNames[i]}\""); }
+            
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
             string a = regex.Replace(dialogueName, "");
             string b = regex.Replace(DialogueNames[i], "");
 
@@ -262,6 +291,7 @@ public class UI_DialogueController : MonoBehaviour
         setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
     }
 
+<<<<<<< HEAD
     private void onNextDialogue() {
         if (DebugMode) { Debug.Log($"Moving onto next dialogue from key {currentDialogueLineKey}"); }
         nextDialogue = false;
@@ -313,6 +343,11 @@ public class UI_DialogueController : MonoBehaviour
 
         activeDialogueResponseButtons = new List<GameObject>();
 
+=======
+    void Awake() {
+        regex = new Regex(@"\s|[:;,'""\\?]|\p{C}");
+
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
         allDialogueFormats = new List<Dictionary<string, DialogueFormat>>();
         for (int i = 0; i < DialogueFormatData.Length; i++) {
             string[] dialogeFormatSplit = DialogueFormatData[i].Split(new string[] { "{n}" }, StringSplitOptions.None);
@@ -323,7 +358,11 @@ public class UI_DialogueController : MonoBehaviour
             }
             allDialogueFormats.Add(dialogeFormatDictionary);
         }
+<<<<<<< HEAD
         mcFormatData = new DialogueFormat(mcDialogueFormatData);
+=======
+        mcFormatData = new DialogueFormat(MCDialogueFormatData);
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 
         dialogues = new Dialogue[DialogueData.Length];
         for (int i = 0; i < DialogueData.Length; i++) {
@@ -332,8 +371,11 @@ public class UI_DialogueController : MonoBehaviour
         }
 
         nextDialogue = false;
+<<<<<<< HEAD
         responseClicked = false;
         responsesSet = false;
+=======
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 
         dialoguePortrait = DialogueCanvas.transform.Find("DialoguePortrait").GetComponent<Image>();
         dialogueFrame = DialogueCanvas.transform.Find("DialogueFrame").GetComponent<Image>();
@@ -363,17 +405,59 @@ public class UI_DialogueController : MonoBehaviour
     }
 
     void Update() {
+<<<<<<< HEAD
         if (!responsesSet && nextDialogue) { onNextDialogue(); }
         else if (responseClicked) { onResponseClick(); }
+=======
+        if (nextDialogue) {
+            nextDialogue = false;
+            List<string> filteredTransitions = filterKeyByDialogueLevel(currentDialogue, currentDialogue.DialogueTransitions[currentDialogueLineKey], currentDialogueIndex);
+
+            if (filteredTransitions.Count == 0) { throw new Exception($"No valid transitions found for Dialogue {DialogueNames[currentDialogueIndex]} line {currentDialogueLineKey}"); }
+            if (filteredTransitions[0] == "end") { 
+                if (DebugMode) {
+                    Debug.Log("Dialogue ended");
+                    setAllActive(dialogueInputField, dialogueStartButton);
+                    setAllInactive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
+                } else { 
+                    setAllInactive(DialogueCanvas);
+                }    
+                return;
+            }
+
+            bool isResponse = true;
+            foreach (string key in filteredTransitions) {
+                isResponse = isResponse && currentDialogue.DialogueResponses.Contains(key);
+            }
+
+            if (!isResponse) {
+                currentDialogueLineKey = filteredTransitions[0];
+                currentDialogueLineFormat = currentDialogue.DialogueFormats[currentDialogueLineKey];
+                setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
+            } else {
+                setResponses(currentDialogue, filteredTransitions);
+            }
+        }
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
     }
 }
 
 /*
 TODO
+<<<<<<< HEAD
+=======
+- dialogue responses
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 - addSound
 - textEffects by making sure each character if its own Textmeshpro thingy
 - character pooling maybe if it is too laggy
 - check at the start to make sure dialoguedata/dialogueformatdata is valid
 - tool to make dialogueData and dialogueFormats
 - custom talking animations!??!?
+<<<<<<< HEAD
+=======
+
+Um do this
+- why tf did u add mcFormatData the player isnt supposed to fucking be shown in the dialogue
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 */
