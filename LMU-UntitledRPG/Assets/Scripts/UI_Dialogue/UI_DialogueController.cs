@@ -14,6 +14,7 @@ public class UI_DialogueController : MonoBehaviour
     [Header("Gameobject Refs")]
     public UI_DialogueAssets DialogueFormatAssets;
     public GameObject DialogueCanvas;
+    public GameObject DialogueResponsePrefab;
 
     private Image dialoguePortrait;
     private Image dialogueFrame;
@@ -41,6 +42,10 @@ public class UI_DialogueController : MonoBehaviour
     private string currentDialogueLineKey;
     private int currentDialogueIndex;
     private DialogueFormat currentDialogueLineFormat;
+
+    private List<GameObject> activeDialogueResponseButtons;
+    private bool responseClicked;
+    private bool responsesSet;
 
     private Regex regex;
 
@@ -182,9 +187,7 @@ public class UI_DialogueController : MonoBehaviour
     }
 
     private void setNewDialogueLine(Dialogue dialogue, DialogueFormat dialogueFormat, string dialogueKey) {
-        if (DebugMode) {
-            Debug.Log($"Set dialogueLine to {dialogueKey}");
-        }
+        if (DebugMode) { Debug.Log($"Set dialogueLine to {dialogueKey}"); }
         int dialoguePortraitIndex = Array.IndexOf(DialogueFormatAssets.CharacterPortraitIds, dialogueFormat.CharacterPortrait);
         dialoguePortrait.sprite = DialogueFormatAssets.CharacterPortraits[dialoguePortraitIndex];
         int dialogueFrameIndex = Array.IndexOf(DialogueFormatAssets.CharacterFrameIds, dialogueFormat.CharacterFrame);
@@ -193,7 +196,20 @@ public class UI_DialogueController : MonoBehaviour
     }
 
     private void setResponses(Dialogue dialogue, List<string> dialogueResponseKeys) {
-        
+        if (DebugMode) { Debug.Log($"Setting responses for {string.Join(", ", dialogueResponseKeys)}"); }
+        Vector3 buttonPosition = new Vector3(556.996f, 18f, 0f);
+        float yOffsetIncrement = 120f;
+        foreach(string responseKey in dialogueResponseKeys) {
+            GameObject newDialogueResponseButton = Instantiate(DialogueResponsePrefab);
+            newDialogueResponseButton.transform.parent = DialogueCanvas.transform;
+            newDialogueResponseButton.transform.localPosition = buttonPosition;
+            newDialogueResponseButton.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>().text = dialogue.DialogueText[responseKey];
+            newDialogueResponseButton.GetComponent<UI_DialogueOnClick>().onClick.AddListener(() => { currentDialogueLineKey = responseKey; responseClicked = true; });
+            activeDialogueResponseButtons.Add(newDialogueResponseButton);
+
+            buttonPosition.y += yOffsetIncrement;
+        }
+        responsesSet = true;
     }
 
     private List<string> filterKeyByDialogueLevel(Dialogue dialogue, List<string> transitions, int dialogueIndex) {
@@ -214,8 +230,6 @@ public class UI_DialogueController : MonoBehaviour
 
     public void StartDialogue(string dialogueName) {
         for (int i = 0; i < DialogueNames.Length; i++) {
-            if (DebugMode) { Debug.Log($"Comparing \"{dialogueName}\" and \"{DialogueNames[i]}\""); }
-            
             string a = regex.Replace(dialogueName, "");
             string b = regex.Replace(DialogueNames[i], "");
 
@@ -249,8 +263,56 @@ public class UI_DialogueController : MonoBehaviour
         setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
     }
 
+    private void onNextDialogue() {
+        if (DebugMode) { Debug.Log($"Moving onto next dialogue from key {currentDialogueLineKey}"); }
+        nextDialogue = false;
+        List<string> filteredTransitions = filterKeyByDialogueLevel(currentDialogue, currentDialogue.DialogueTransitions[currentDialogueLineKey], currentDialogueIndex);
+
+        if (filteredTransitions.Count == 0) { throw new Exception($"No valid transitions found for Dialogue {DialogueNames[currentDialogueIndex]} line {currentDialogueLineKey}"); }
+        if (filteredTransitions[0] == "end") { 
+            if (DebugMode) {
+                Debug.Log("Dialogue ended");
+                setAllActive(dialogueInputField, dialogueStartButton);
+                setAllInactive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
+            } else { 
+                setAllInactive(DialogueCanvas);
+            }    
+            return;
+        }
+
+        bool isResponse = true;
+        foreach (string key in filteredTransitions) {
+            isResponse = isResponse && currentDialogue.DialogueResponses.Contains(key);
+        }
+
+        if (!isResponse) {
+            currentDialogueLineKey = filteredTransitions[0];
+            currentDialogueLineFormat = currentDialogue.DialogueFormats[currentDialogueLineKey];
+            setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
+        } else {
+            setResponses(currentDialogue, filteredTransitions);
+        }
+    }
+
+    private void onResponseClick() {
+        if (DebugMode) { Debug.Log($"Response Clicked: {currentDialogueLineKey}"); }
+        responseClicked = false;
+        if (activeDialogueResponseButtons.Count != 0) {
+            foreach (GameObject responseButton in activeDialogueResponseButtons) {
+                responseButton.GetComponent<UI_DialogueOnClick>().onClick.RemoveAllListeners();
+                Destroy(responseButton);
+            }
+        }
+        activeDialogueResponseButtons.Clear();
+        responsesSet = false;
+
+        onNextDialogue();
+    }
+
     void Awake() {
         regex = new Regex(@"\s|[:;,'""\\?]|\p{C}");
+
+        activeDialogueResponseButtons = new List<GameObject>();
 
         allDialogueFormats = new List<Dictionary<string, DialogueFormat>>();
         for (int i = 0; i < DialogueFormatData.Length; i++) {
@@ -271,6 +333,8 @@ public class UI_DialogueController : MonoBehaviour
         }
 
         nextDialogue = false;
+        responseClicked = false;
+        responsesSet = false;
 
         dialoguePortrait = DialogueCanvas.transform.Find("DialoguePortrait").GetComponent<Image>();
         dialogueFrame = DialogueCanvas.transform.Find("DialogueFrame").GetComponent<Image>();
@@ -300,35 +364,8 @@ public class UI_DialogueController : MonoBehaviour
     }
 
     void Update() {
-        if (nextDialogue) {
-            nextDialogue = false;
-            List<string> filteredTransitions = filterKeyByDialogueLevel(currentDialogue, currentDialogue.DialogueTransitions[currentDialogueLineKey], currentDialogueIndex);
-
-            if (filteredTransitions.Count == 0) { throw new Exception($"No valid transitions found for Dialogue {DialogueNames[currentDialogueIndex]} line {currentDialogueLineKey}"); }
-            if (filteredTransitions[0] == "end") { 
-                if (DebugMode) {
-                    Debug.Log("Dialogue ended");
-                    setAllActive(dialogueInputField, dialogueStartButton);
-                    setAllInactive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
-                } else { 
-                    setAllInactive(DialogueCanvas);
-                }    
-                return;
-            }
-
-            bool isResponse = true;
-            foreach (string key in filteredTransitions) {
-                isResponse = isResponse && currentDialogue.DialogueResponses.Contains(key);
-            }
-
-            if (!isResponse) {
-                currentDialogueLineKey = filteredTransitions[0];
-                currentDialogueLineFormat = currentDialogue.DialogueFormats[currentDialogueLineKey];
-                setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
-            } else {
-                setResponses(currentDialogue, filteredTransitions);
-            }
-        }
+        if (!responsesSet && nextDialogue) { onNextDialogue(); }
+        else if (responseClicked) { onResponseClick(); }
     }
 }
 
