@@ -1313,16 +1313,18 @@ MonoBehaviour:
   DebugMode: 1
   DialogueFormatAssets: {fileID: 1758251321}
   DialogueCanvas: {fileID: 1774342034}
+  DialogueResponsePrefab: {fileID: 2981295018120693850, guid: 3c79c2d9f064c7645b0014cde6e137f1, type: 3}
   DialogueNames:
   - Phill Introduction
   - Phill End
   - Phill Talk
   DialogueData:
-  - "1{;}0~Hi {e:effectName}my{e:effectName} name is Phill{>}1.1{>}1.2{n} 1.1{.}0~1~2~3~otherLevel~testLevel~*take
+  - "1{;}0~Hi my name is Phill{>}1.1{>}1.2{n} 1.1{.}0~1~2~3~otherLevel~testLevel~*take
     sword*{>}2{n} 1.2{.}0~That\u2019s a stupid name kys{>}3{n} 2{:}0~1~2~3~4~5~WTF
     THATS MY SWORD DON\u2019T TAKE IT{>}2.1{n} 2.1{.}0~cope{>}end{n} 3{:}0~oh \u2026{>}end{n} "
-  - '1{;}0~canKillPhill~I HATE YOU{>}1.1{>}wtf{n} 1.1{.}0~ok{>}2{n} wtf{.}canKillPhill~*kill
-    phill*{>}youKilledPhill{n} 2{:}0~canKillPhill~*phill kills you*{>}end{n} youKilledPhill{:}canKillPhill~*dies*{>}end{n} '
+  - '1{;}0~canKillPhill~I HATE YOU{>}1.1{>}wtf{n} 1.1{.}0~canKillPhill~ok{>}2{n}
+    wtf{.}canKillPhill~*kill phill*{>}youKilledPhill{n} 2{:}0~canKillPhill~*phill
+    kills you*{>}end{n} youKilledPhill{:}canKillPhill~*dies*{>}end{n} '
   - '1{;}0~blahblahblahblah{>}2{n} 2{:}0~blah blah blah{>}3{n} 3{:}0~blahasdfasdhfu{>}4{n}
     4{:}0~afleiowuhas{>}end{n} test1{;}test~hi{>}test2{n} test2{:}test~hi hi hi hi{>}test3{n}
     test3{:}test~hi hi hih ih ih ihi{>}test4{n} test4{:}test~hiiiiii{>}end{n} '
@@ -1343,8 +1345,6 @@ MonoBehaviour:
   - 0
   - canKillPhill
   - 0
-  MCDialogueFormatData: '1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n}
-    2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 3:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} '
 --- !u!4 &1801760886
 Transform:
   m_ObjectHideFlags: 0
