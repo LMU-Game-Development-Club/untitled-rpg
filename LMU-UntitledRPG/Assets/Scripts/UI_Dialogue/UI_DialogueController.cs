@@ -15,7 +15,10 @@ public class UI_DialogueController : MonoBehaviour
     public UI_DialogueAssets DialogueFormatAssets;
     public GameObject DialogueCanvas;
 <<<<<<< HEAD
+<<<<<<< HEAD
     public GameObject DialogueResponsePrefab;
+=======
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 
@@ -36,16 +39,22 @@ public class UI_DialogueController : MonoBehaviour
     private List<Dictionary<string, DialogueFormat>> allDialogueFormats;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     private string mcDialogueFormatData = "1:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 2:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} 3:CharacterName:CharacterPortrait:CharacterFrame:CharacterSpeechSound{n} ";
     private DialogueFormat mcFormatData;
 
 =======
+=======
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
     [Header("Character Data")]
     public string MCDialogueFormatData;
     private DialogueFormat mcFormatData;
 
 
+<<<<<<< HEAD
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
+=======
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
     private bool nextDialogue;
     private Dialogue currentDialogue;
@@ -54,10 +63,13 @@ public class UI_DialogueController : MonoBehaviour
     private DialogueFormat currentDialogueLineFormat;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private List<GameObject> activeDialogueResponseButtons;
     private bool responseClicked;
     private bool responsesSet;
 
+=======
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
     private Regex regex;
@@ -201,7 +213,13 @@ public class UI_DialogueController : MonoBehaviour
 
     private void setNewDialogueLine(Dialogue dialogue, DialogueFormat dialogueFormat, string dialogueKey) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (DebugMode) { Debug.Log($"Set dialogueLine to {dialogueKey}"); }
+=======
+        if (DebugMode) {
+            Debug.Log($"Set dialogueLine to {dialogueKey}");
+        }
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
         if (DebugMode) {
             Debug.Log($"Set dialogueLine to {dialogueKey}");
@@ -215,6 +233,7 @@ public class UI_DialogueController : MonoBehaviour
     }
 
     private void setResponses(Dialogue dialogue, List<string> dialogueResponseKeys) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         if (DebugMode) { Debug.Log($"Setting responses for {string.Join(", ", dialogueResponseKeys)}"); }
         Vector3 buttonPosition = new Vector3(556.996f, 18f, 0f);
@@ -230,6 +249,9 @@ public class UI_DialogueController : MonoBehaviour
             buttonPosition.y += yOffsetIncrement;
         }
         responsesSet = true;
+=======
+        
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
         
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
@@ -254,6 +276,11 @@ public class UI_DialogueController : MonoBehaviour
     public void StartDialogue(string dialogueName) {
         for (int i = 0; i < DialogueNames.Length; i++) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            if (DebugMode) { Debug.Log($"Comparing \"{dialogueName}\" and \"{DialogueNames[i]}\""); }
+            
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
             if (DebugMode) { Debug.Log($"Comparing \"{dialogueName}\" and \"{DialogueNames[i]}\""); }
             
@@ -291,6 +318,7 @@ public class UI_DialogueController : MonoBehaviour
         setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     private void onNextDialogue() {
         if (DebugMode) { Debug.Log($"Moving onto next dialogue from key {currentDialogueLineKey}"); }
@@ -348,6 +376,11 @@ public class UI_DialogueController : MonoBehaviour
         regex = new Regex(@"\s|[:;,'""\\?]|\p{C}");
 
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
+=======
+    void Awake() {
+        regex = new Regex(@"\s|[:;,'""\\?]|\p{C}");
+
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
         allDialogueFormats = new List<Dictionary<string, DialogueFormat>>();
         for (int i = 0; i < DialogueFormatData.Length; i++) {
             string[] dialogeFormatSplit = DialogueFormatData[i].Split(new string[] { "{n}" }, StringSplitOptions.None);
@@ -359,7 +392,11 @@ public class UI_DialogueController : MonoBehaviour
             allDialogueFormats.Add(dialogeFormatDictionary);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         mcFormatData = new DialogueFormat(mcDialogueFormatData);
+=======
+        mcFormatData = new DialogueFormat(MCDialogueFormatData);
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
         mcFormatData = new DialogueFormat(MCDialogueFormatData);
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
@@ -372,8 +409,11 @@ public class UI_DialogueController : MonoBehaviour
 
         nextDialogue = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
         responseClicked = false;
         responsesSet = false;
+=======
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 
@@ -406,9 +446,12 @@ public class UI_DialogueController : MonoBehaviour
 
     void Update() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!responsesSet && nextDialogue) { onNextDialogue(); }
         else if (responseClicked) { onResponseClick(); }
 =======
+=======
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
         if (nextDialogue) {
             nextDialogue = false;
             List<string> filteredTransitions = filterKeyByDialogueLevel(currentDialogue, currentDialogue.DialogueTransitions[currentDialogueLineKey], currentDialogueIndex);
@@ -438,6 +481,9 @@ public class UI_DialogueController : MonoBehaviour
                 setResponses(currentDialogue, filteredTransitions);
             }
         }
+<<<<<<< HEAD
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
+=======
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
     }
 }
@@ -445,6 +491,10 @@ public class UI_DialogueController : MonoBehaviour
 /*
 TODO
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+- dialogue responses
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
 - dialogue responses
 >>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
@@ -455,6 +505,12 @@ TODO
 - tool to make dialogueData and dialogueFormats
 - custom talking animations!??!?
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+Um do this
+- why tf did u add mcFormatData the player isnt supposed to fucking be shown in the dialogue
+>>>>>>> 19c23e88baf9325a7362b70299ea3e8c0a08beb3
 =======
 
 Um do this
