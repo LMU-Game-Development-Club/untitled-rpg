@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a8992c37345dd4b87a07151c1ac5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugMode: 1
+  DebugMode: 0
   DialogueFormatAssets: {fileID: 5976065196625554817}
   DialogueCanvas: {fileID: 5904716268733749012}
   DialogueResponsePrefab: {fileID: 2981295018120693850, guid: 3c79c2d9f064c7645b0014cde6e137f1, type: 3}
@@ -1399,6 +1399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3101932051628363989}
+  - component: {fileID: 973671538353488934}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -1424,6 +1425,18 @@ Transform:
   - {fileID: 6548626050489091722}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973671538353488934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756282423505147223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c50a51f08377f4f811ed00380d4470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8407466491815172804
 GameObject:
   m_ObjectHideFlags: 0
