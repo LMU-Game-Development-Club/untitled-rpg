@@ -20,15 +20,25 @@ public class MI_OverworldPlayerController : MonoBehaviour
     [SerializeField]
     private bool _isInteracting;
 
+    [SerializeField]
+    private bool _inDialogue;
+
     private Rigidbody2D _rb;
     private Vector2 _movement;
     private Animator _animator;
+
+    private UI_DialogueController _dialogueController;
 
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+
+        _dialogueController = UI_DialogueManager.Instance.transform.Find("DialogueController").GetComponent<UI_DialogueController>();
+        _inDialogue = false;
+        _dialogueController.OnDialogueStart.AddListener(() => _inDialogue = true);
+        _dialogueController.OnDialogueEnd.AddListener(() => _inDialogue = false);
     }
 
     public void OnMove(InputValue value)
@@ -100,14 +110,14 @@ public class MI_OverworldPlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _movement * moveSpeed * Time.fixedDeltaTime);
-        _animator.SetFloat("Speed", _movement.sqrMagnitude);
-
-        // Raycasts must be done in FixedUpdate
-        if (_isInteracting)
-        {
-            Interaction();
-            _isInteracting = false; // Reset interacting state
+        if (!_inDialogue) {
+            _rb.MovePosition(_rb.position + _movement * moveSpeed * Time.fixedDeltaTime);
+            _animator.SetFloat("Speed", _movement.sqrMagnitude);
+            if (_isInteracting)
+            {
+                Interaction(); // Raycasts must be done in FixedUpdate
+                _isInteracting = false; // Reset interacting state
+            }
         }
     }
 }

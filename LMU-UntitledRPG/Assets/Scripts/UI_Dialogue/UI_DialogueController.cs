@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UI_DialogueController : MonoBehaviour
@@ -46,6 +47,10 @@ public class UI_DialogueController : MonoBehaviour
     private bool responsesSet;
 
     private Regex regex;
+
+    //Events
+    public UnityEvent OnDialogueStart;
+    public UnityEvent OnDialogueEnd;
 
     public struct DialogueFormat {
         public DialogueFormat(string dialogueFormatData) {
@@ -245,6 +250,8 @@ public class UI_DialogueController : MonoBehaviour
             Debug.Log(dialogues[dialogueIndex]);
 
             setAllInactive(dialogueInputField, dialogueStartButton);
+        } else {
+            setAllActive(DialogueCanvas);
         }
         setAllActive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
 
@@ -259,6 +266,8 @@ public class UI_DialogueController : MonoBehaviour
         currentDialogueLineFormat = currentDialogue.DialogueFormats[currentDialogueLineKey];
 
         setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
+
+        OnDialogueStart.Invoke();
     }
 
     private void onNextDialogue() {
@@ -272,9 +281,11 @@ public class UI_DialogueController : MonoBehaviour
                 Debug.Log("Dialogue ended");
                 setAllActive(dialogueInputField, dialogueStartButton);
                 setAllInactive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
-            } else { 
+            } else
+            {
                 setAllInactive(DialogueCanvas);
-            }    
+            }
+            OnDialogueEnd.Invoke();
             return;
         }
 
