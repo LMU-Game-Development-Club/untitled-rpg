@@ -38,12 +38,12 @@ public class MiloCombatManagerScript : MonoBehaviour
     void OnLimbSelected(Button limbButton)
     {
         string limbType = limbButton == headSprite ? "head" : "arm";
-        var selectedLimb = limbType == "head" ? head : arm;
+        selectedLimb = limbType == "head" ? head : arm;
         var limbScript = selectedLimb.GetComponent<MiloLimbScriptTemplate>();
 
         limbDescription.text = limbScript.limbDescription;
-        attack1.text = limbScript.attacks[0].name;
-        attack2.text = limbScript.attacks[1].name;
+        attack1.text = limbScript.attack1.name;
+        attack2.text = limbScript.attack2.name;
     }
 
     void OnAttackSelected(int attackIndex)
@@ -52,10 +52,14 @@ public class MiloCombatManagerScript : MonoBehaviour
         {
             return;
         }
-
+        
         var limbScript = selectedLimb.GetComponent<MiloLimbScriptTemplate>();
-        MiloAttackScriptTemplate attack = limbScript.attacks[attackIndex];
-        selectedAttack = attack.gameObject;
+        if (attackIndex == 0) {
+            selectedAttack = limbScript.attack1.gameObject;
+        }
+        else {
+            selectedAttack = limbScript.attack2.gameObject;
+        }
 
         ExecuteAttack(selectedAttack.GetComponent<MiloAttackScriptTemplate>());
     }
@@ -63,7 +67,6 @@ public class MiloCombatManagerScript : MonoBehaviour
     void ExecuteAttack(MiloAttackScriptTemplate attack)
     {
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
-
         enemyScript.health -= attack.damage + attack.elementDamage;
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
 
@@ -75,8 +78,7 @@ public class MiloCombatManagerScript : MonoBehaviour
 
     void DetermineNextTurn()
     {
-        // random turn logic here
-        if (playerNextTurnPercent <= 0)
+        if (playerNextTurnPercent <= UnityEngine.Random.Range(1, 101))
         {
             isPlayerTurn = false;
             playerNextTurnPercent = 100f;

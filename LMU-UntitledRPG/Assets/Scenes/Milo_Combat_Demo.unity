@@ -382,6 +382,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1772515456671955098, guid: 8856b509bf16e4d87852d8f3a0c4946e, type: 3}
   m_PrefabInstance: {fileID: 1917444877986694338}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &866292881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866292878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0e4073cdc5c4906989ac46c8072508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: Ball
+  health: 100
+  maxHealth: 100
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  attacksPerTurn: 1
+  activeStatusEffects: []
+  statusBuildUps: 
+  enemyDescription: 
 --- !u!1 &1283484032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1186,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1772515456671955098, guid: 8856b509bf16e4d87852d8f3a0c4946e, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 866292881}
   m_SourcePrefab: {fileID: 100100000, guid: 8856b509bf16e4d87852d8f3a0c4946e, type: 3}
 --- !u!1001 &5602630281594996921
 PrefabInstance:
@@ -1399,6 +1423,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Milo Example Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8146490246923160846, guid: 2e9c1e105a92e4e52986ef996591879e, type: 3}
+      propertyPath: attack1
+      value: 
+      objectReference: {fileID: 5355947860677065305, guid: c116034bac8f6487e8010e198df9c6f3, type: 3}
+    - target: {fileID: 8146490246923160846, guid: 2e9c1e105a92e4e52986ef996591879e, type: 3}
+      propertyPath: attack2
+      value: 
+      objectReference: {fileID: 250509196205020972, guid: df10410810cea40d3bfcc800687edece, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
