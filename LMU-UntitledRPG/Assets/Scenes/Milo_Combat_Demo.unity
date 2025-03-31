@@ -397,8 +397,8 @@ MonoBehaviour:
   enemyName: Ball
   health: 100
   maxHealth: 100
-  attack1: {fileID: 0}
-  attack2: {fileID: 0}
+  attack1: {fileID: 1312243184528151643, guid: 68007871de3824a6eaa149043e1e8c7d, type: 3}
+  attack2: {fileID: 5611221198518234868, guid: 69ecbbb4da12b4880920fdca47c1b0da, type: 3}
   attacksPerTurn: 1
   activeStatusEffects: []
   statusBuildUps: 
