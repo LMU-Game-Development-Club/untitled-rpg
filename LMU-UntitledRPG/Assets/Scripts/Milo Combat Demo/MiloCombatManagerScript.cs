@@ -30,7 +30,6 @@ public class MiloCombatManagerScript : MonoBehaviour
 
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
-
         headSprite.onClick.AddListener(() => OnLimbSelected(headSprite));
         armSprite.onClick.AddListener(() => OnLimbSelected(armSprite));
         lightAttackButton.onClick.AddListener(() => OnAttackSelected(0));
@@ -46,6 +45,7 @@ public class MiloCombatManagerScript : MonoBehaviour
         limbDescription.text = limbScript.limbDescription;
         attack1.text = limbScript.attack1.name;
         attack2.text = limbScript.attack2.name;
+
     }
 
     void OnAttackSelected(int attackIndex)
@@ -62,6 +62,7 @@ public class MiloCombatManagerScript : MonoBehaviour
         else {
             selectedAttack = limbScript.attack2.gameObject;
         }
+
 
         ExecuteAttack(selectedAttack.GetComponent<MiloAttackScriptTemplate>());
     }

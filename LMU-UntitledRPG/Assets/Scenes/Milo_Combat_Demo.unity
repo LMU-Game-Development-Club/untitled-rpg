@@ -403,6 +403,7 @@ MonoBehaviour:
   activeStatusEffects: []
   statusBuildUps: 
   enemyDescription: 
+
 --- !u!1 &1283484032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1191,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1772515456671955098, guid: 8856b509bf16e4d87852d8f3a0c4946e, type: 3}
       insertIndex: 1
       addedObject: {fileID: 866292881}
+
   m_SourcePrefab: {fileID: 100100000, guid: 8856b509bf16e4d87852d8f3a0c4946e, type: 3}
 --- !u!1001 &5602630281594996921
 PrefabInstance:
@@ -1431,6 +1433,7 @@ PrefabInstance:
       propertyPath: attack2
       value: 
       objectReference: {fileID: 250509196205020972, guid: df10410810cea40d3bfcc800687edece, type: 3}
+
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

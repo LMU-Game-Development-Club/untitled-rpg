@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 3f68f90275fbbd144afadb2f5fec98e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 69641132245743713
+    second: CharacterDiesPortrait_0
+  - first:
+      213: -385005202533727767
+    second: CharacterDiesPortrait_1
+  - first:
+      213: -8897050873950627121
+    second: CharacterDiesPortrait_2
+  - first:
+      213: -3991132093058069962
+    second: CharacterDiesPortrait_3
+  - first:
+      213: -937530077580641351
+    second: CharacterDiesPortrait_4
+  - first:
+      213: 5046077915341008884
+    second: CharacterDiesPortrait_5
+  - first:
+      213: 2583256516433387054
+    second: CharacterDiesPortrait_6
+  - first:
+      213: -5100019587028934918
+    second: CharacterDiesPortrait_7
+  - first:
+      213: 6279432370750993685
+    second: CharacterDiesPortrait_8
+  - first:
+      213: -5566971120922056896
+    second: CharacterDiesPortrait_9
+  - first:
+      213: -5093975243048678434
+    second: CharacterDiesPortrait_10
+  - first:
+      213: -1254733531643183959
+    second: CharacterDiesPortrait_11
+  - first:
+      213: -5778862485076053221
+    second: CharacterDiesPortrait_12
+  - first:
+      213: 4545747352072238977
+    second: CharacterDiesPortrait_13
+  - first:
+      213: 3296146698094835337
+    second: CharacterDiesPortrait_14
+  - first:
+      213: 1439514759487822430
+    second: CharacterDiesPortrait_15
+  - first:
+      213: -6941884520307794927
+    second: CharacterDiesPortrait_16
+  - first:
+      213: -6910577317198849281
+    second: CharacterDiesPortrait_17
+  - first:
+      213: -6366205204246961173
+    second: CharacterDiesPortrait_18
+  - first:
+      213: -247416007970425735
+    second: CharacterDiesPortrait_19
+  - first:
+      213: 4082173023267312873
+    second: CharacterDiesPortrait_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_0
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 232
+        width: 71
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1687345ad3a67f000800000000000000
+      internalID: 69641132245743713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 268
+        width: 163
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e1cc42eecf28aaf0800000000000000
+      internalID: -385005202533727767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_2
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 245
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca18956e53578480800000000000000
+      internalID: -8897050873950627121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_3
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 272
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63acc9dd186ac98c0800000000000000
+      internalID: -3991132093058069962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_4
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 262
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bbbf879c593df2f0800000000000000
+      internalID: -937530077580641351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 169
+        width: 147
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff28d4f025470640800000000000000
+      internalID: 5046077915341008884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_6
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 199
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e99b17d1299d320800000000000000
+      internalID: 2583256516433387054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_7
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 157
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe1b97e4371939b0800000000000000
+      internalID: -5100019587028934918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_8
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515b3b9a876052750800000000000000
+      internalID: 6279432370750993685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_9
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 174
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0472596b2452eb2b0800000000000000
+      internalID: -5566971120922056896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_10
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 152
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb037761809e49b0800000000000000
+      internalID: -5093975243048678434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_11
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 160
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9acf2a6308a469ee0800000000000000
+      internalID: -1254733531643183959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_12
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 141
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13f533003b5dcfa0800000000000000
+      internalID: -5778862485076053221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_13
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18730fed12db51f30800000000000000
+      internalID: 4545747352072238977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_14
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 132
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 986f48b45f34ebd20800000000000000
+      internalID: 3296146698094835337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_15
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 147
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a14300c0f2af310800000000000000
+      internalID: 1439514759487822430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_16
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 140
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c5547fec879af90800000000000000
+      internalID: -6941884520307794927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_17
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 119
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffa9d773b82b810a0800000000000000
+      internalID: -6910577317198849281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_18
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 136
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be3ed99a812b6a7a0800000000000000
+      internalID: -6366205204246961173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_19
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 109
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9747d2d9370019cf0800000000000000
+      internalID: -247416007970425735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDiesPortrait_20
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 110
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4d7838cbac6a830800000000000000
+      internalID: 4082173023267312873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CharacterDiesPortrait_0: 69641132245743713
+      CharacterDiesPortrait_1: -385005202533727767
+      CharacterDiesPortrait_10: -5093975243048678434
+      CharacterDiesPortrait_11: -1254733531643183959
+      CharacterDiesPortrait_12: -5778862485076053221
+      CharacterDiesPortrait_13: 4545747352072238977
+      CharacterDiesPortrait_14: 3296146698094835337
+      CharacterDiesPortrait_15: 1439514759487822430
+      CharacterDiesPortrait_16: -6941884520307794927
+      CharacterDiesPortrait_17: -6910577317198849281
+      CharacterDiesPortrait_18: -6366205204246961173
+      CharacterDiesPortrait_19: -247416007970425735
+      CharacterDiesPortrait_2: -8897050873950627121
+      CharacterDiesPortrait_20: 4082173023267312873
+      CharacterDiesPortrait_3: -3991132093058069962
+      CharacterDiesPortrait_4: -937530077580641351
+      CharacterDiesPortrait_5: 5046077915341008884
+      CharacterDiesPortrait_6: 2583256516433387054
+      CharacterDiesPortrait_7: -5100019587028934918
+      CharacterDiesPortrait_8: 6279432370750993685
+      CharacterDiesPortrait_9: -5566971120922056896
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
