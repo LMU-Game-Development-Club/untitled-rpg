@@ -18,17 +18,18 @@ public class MiloCombatManagerScript : MonoBehaviour
     public Button lightAttackButton;
     public Button heavyAttackButton;
     public int lives;
-    private bool isPlayerTurn;
     private float playerNextTurnPercent;
 
     private GameObject selectedLimb;
     private GameObject selectedAttack;
 
+    // TODO: Add limb cooldown logic
     void Start()
     {
-        isPlayerTurn = true;
         playerNextTurnPercent = 100f;
 
+        var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
+        enemyHealth.text = "Enemy HP: " + enemyScript.health;
         headSprite.onClick.AddListener(() => OnLimbSelected(headSprite));
         armSprite.onClick.AddListener(() => OnLimbSelected(armSprite));
         lightAttackButton.onClick.AddListener(() => OnAttackSelected(0));
@@ -38,12 +39,13 @@ public class MiloCombatManagerScript : MonoBehaviour
     void OnLimbSelected(Button limbButton)
     {
         string limbType = limbButton == headSprite ? "head" : "arm";
-        var selectedLimb = limbType == "head" ? head : arm;
+        selectedLimb = limbType == "head" ? head : arm;
         var limbScript = selectedLimb.GetComponent<MiloLimbScriptTemplate>();
 
         limbDescription.text = limbScript.limbDescription;
-        attack1.text = limbScript.attacks[0].name;
-        attack2.text = limbScript.attacks[1].name;
+        attack1.text = limbScript.attack1.name;
+        attack2.text = limbScript.attack2.name;
+
     }
 
     void OnAttackSelected(int attackIndex)
@@ -52,10 +54,15 @@ public class MiloCombatManagerScript : MonoBehaviour
         {
             return;
         }
-
+        
         var limbScript = selectedLimb.GetComponent<MiloLimbScriptTemplate>();
-        MiloAttackScriptTemplate attack = limbScript.attacks[attackIndex];
-        selectedAttack = attack.gameObject;
+        if (attackIndex == 0) {
+            selectedAttack = limbScript.attack1.gameObject;
+        }
+        else {
+            selectedAttack = limbScript.attack2.gameObject;
+        }
+
 
         ExecuteAttack(selectedAttack.GetComponent<MiloAttackScriptTemplate>());
     }
@@ -63,28 +70,71 @@ public class MiloCombatManagerScript : MonoBehaviour
     void ExecuteAttack(MiloAttackScriptTemplate attack)
     {
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
-
         enemyScript.health -= attack.damage + attack.elementDamage;
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
 
         playerNextTurnPercent -= attack.turnDecay;
         turnMeter.text = "Player turn chance: " + playerNextTurnPercent + "%";
 
+        CheckEnemyDefeat();
         DetermineNextTurn();
+    }
+
+    void CheckEnemyDefeat()
+    {
+        var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
+        if (enemyScript.health <= 0)
+        {
+            // if enemy is defeated, end the combat or show victory message
+            Debug.Log("Enemy defeated!");
+        }
+    }
+
+    void CheckPlayerDefeat()
+    {
+        if (lives <= 0)
+        {
+            // if player is defeated, end the combat or show game over message
+            Debug.Log("Player defeated!");
+        }
     }
 
     void DetermineNextTurn()
     {
-        // random turn logic here
-        if (playerNextTurnPercent <= 0)
+        if (playerNextTurnPercent <= UnityEngine.Random.Range(1, 101))
         {
-            isPlayerTurn = false;
+            EnemyTurn();
+
             playerNextTurnPercent = 100f;
-            // Enemy turn logic here
+            turnMeter.text = "Player turn chance: " + playerNextTurnPercent + "%";
         }
-        else
-        {
-            isPlayerTurn = true;
-        }
+    }
+
+    void EnemyTurn()
+    {
+         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
+            MiloAttackScriptTemplate chosenAttack = UnityEngine.Random.Range(0, 2) == 0
+                ? enemyScript.attack1.GetComponent<MiloAttackScriptTemplate>()
+                : enemyScript.attack2.GetComponent<MiloAttackScriptTemplate>();
+
+            // Randomly choose a limb (head or arm) to apply damage to
+            var chosenPlayerLimb = UnityEngine.Random.Range(0, 2) == 0 ? head : arm;
+            var chosenLimbScript = chosenPlayerLimb.GetComponent<MiloLimbScriptTemplate>();
+
+            // Deal damage to the chosen limb
+            chosenLimbScript.limbHealth -= chosenAttack.damage + chosenAttack.elementDamage;
+            Debug.Log("Enemy used " + chosenAttack.attackName + " for " + (chosenAttack.damage + chosenAttack.elementDamage) +
+                      " damage to the player's " + chosenLimbScript.limbName + ".");
+
+            // If limb is reduced to zero health, start its cooldown
+            if (chosenLimbScript.limbHealth <= 0)
+            {
+                chosenLimbScript.limbHealth = 0;
+                chosenLimbScript.isBroken = true;
+                chosenLimbScript.limbCooldown = chosenLimbScript.limbMaxCooldown;
+                Debug.Log(chosenLimbScript.limbName + " is broken for " + chosenLimbScript.limbCooldown + " turns.");
+            }
+
+            CheckPlayerDefeat();
     }
 }
