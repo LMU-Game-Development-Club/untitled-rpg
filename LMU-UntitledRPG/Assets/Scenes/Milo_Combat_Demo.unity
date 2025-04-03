@@ -392,7 +392,6 @@ MonoBehaviour:
   activeStatusEffects: []
   statusBuildUps: 
   enemyDescription: 
-
 --- !u!1 &1283484032
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,43 +533,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5528465259370517647, guid: 2f7ca02e8e6ff4316a0a03ef102aca05, type: 3}
   m_PrefabInstance: {fileID: 659944047413758526}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1543272687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543272685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae8acf6c604764ca9af7a28d7aba5a85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 866292878}
-  head: {fileID: 3536680405408492155, guid: 21cbfe7a1cbda4aa4b19290c4a4f2aed, type: 3}
-  arm: {fileID: 2984662097295133972, guid: f50e327f0245b462482d0d450300c349, type: 3}
-  limbDescription: {fileID: 294677346}
-  attack1: {fileID: 2122017738}
-  attack2: {fileID: 1936534735}
-  enemyHealth: {fileID: 1366211429}
-  turnMeter: {fileID: 1587164099}
-  headSprite: {fileID: 583551225}
-  armSprite: {fileID: 279939568}
-  lightAttackButton: {fileID: 2122017740}
-  heavyAttackButton: {fileID: 1936534737}
-  lives: 3
---- !u!114 &1587164099 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6855770018021585840, guid: 82135cf22938f43e3b6a6dfb8d269143, type: 3}
-  m_PrefabInstance: {fileID: 8399481470932545543}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-
 --- !u!1 &1807334015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1125,6 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 866292881}
   m_SourcePrefab: {fileID: 100100000, guid: 8856b509bf16e4d87852d8f3a0c4946e, type: 3}
-
 --- !u!1001 &5602630281594996921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1409,7 +1370,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e9c1e105a92e4e52986ef996591879e, type: 3}
-
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1418,3 +1378,5 @@ SceneRoots:
   - {fileID: 659944047413758526}
   - {fileID: 8399481470932545543}
   - {fileID: 5602630281594996921}
+  - {fileID: 8427675839276686204}
+  - {fileID: 1917444877986694338}
