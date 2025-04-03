@@ -9,6 +9,7 @@ public class MiloLimbScriptTemplate : MonoBehaviour
     public float limbMaxHealth;
     public bool isBroken;
     public int limbMaxCooldown;
+
     private int limbCooldown;
     public string limbDescription;
 }
