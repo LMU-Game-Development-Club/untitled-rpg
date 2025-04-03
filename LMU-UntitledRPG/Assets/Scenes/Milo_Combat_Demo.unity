@@ -403,7 +403,6 @@ MonoBehaviour:
   activeStatusEffects: []
   statusBuildUps: 
   enemyDescription: 
-
 --- !u!1 &1283484032
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,8 +573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 866292878}
-  head: {fileID: 2984662097295133972, guid: f50e327f0245b462482d0d450300c349, type: 3}
-  arm: {fileID: 3536680405408492155, guid: 21cbfe7a1cbda4aa4b19290c4a4f2aed, type: 3}
+  head: {fileID: 1801966765}
+  arm: {fileID: 2109273350}
   limbDescription: {fileID: 294677346}
   attack1: {fileID: 2122017738}
   attack2: {fileID: 1936534735}
@@ -597,6 +596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1801966765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6794921285402323900, guid: e6384169edddd43798d1e6cafb7c53ea, type: 3}
+  m_PrefabInstance: {fileID: 5602630281594996921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1807334015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1013,11 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!1 &2109273350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2068080354329224308, guid: e6384169edddd43798d1e6cafb7c53ea, type: 3}
+  m_PrefabInstance: {fileID: 5602630281594996921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2122017736 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6220405428838352733, guid: 82135cf22938f43e3b6a6dfb8d269143, type: 3}
@@ -1191,7 +1200,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1772515456671955098, guid: 8856b509bf16e4d87852d8f3a0c4946e, type: 3}
       insertIndex: 1
       addedObject: {fileID: 866292881}
-
   m_SourcePrefab: {fileID: 100100000, guid: 8856b509bf16e4d87852d8f3a0c4946e, type: 3}
 --- !u!1001 &5602630281594996921
 PrefabInstance:
@@ -1433,7 +1441,6 @@ PrefabInstance:
       propertyPath: attack2
       value: 
       objectReference: {fileID: 250509196205020972, guid: df10410810cea40d3bfcc800687edece, type: 3}
-
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
