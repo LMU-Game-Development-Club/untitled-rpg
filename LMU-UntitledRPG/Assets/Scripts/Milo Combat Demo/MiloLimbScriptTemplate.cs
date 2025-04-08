@@ -11,7 +11,6 @@ public class MiloLimbScriptTemplate : MonoBehaviour
     public bool isBroken;
     public int limbMaxCooldown;
 
-
     public int limbCooldown;
     public string limbDescription;
 }
