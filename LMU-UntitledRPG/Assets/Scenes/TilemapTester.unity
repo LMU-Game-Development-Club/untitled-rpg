@@ -230,19 +230,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679008022773923617, guid: 4bcca6bbe930da9439517e2b6fa46bec, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.08538163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4679008022773923617, guid: 4bcca6bbe930da9439517e2b6fa46bec, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.08513575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4679008022773923617, guid: 4bcca6bbe930da9439517e2b6fa46bec, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.8279431
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679008022773923617, guid: 4bcca6bbe930da9439517e2b6fa46bec, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.82834786
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6517044782160267422, guid: 4bcca6bbe930da9439517e2b6fa46bec, type: 3}
       propertyPath: m_GridSnapping
