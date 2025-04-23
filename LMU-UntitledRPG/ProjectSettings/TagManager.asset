@@ -8,6 +8,7 @@ TagManager:
   - Ex1
   - Ex2
   - Ex3
+  - UIElement
   layers:
   - Default
   - TransparentFX
