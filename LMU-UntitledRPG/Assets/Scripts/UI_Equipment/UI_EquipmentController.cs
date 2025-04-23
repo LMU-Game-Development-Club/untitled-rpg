@@ -42,8 +42,8 @@ public class UI_EquipmentController : MonoBehaviour
 
     private List<(Transform, EquipmentUIItem)> EquipmentContainers = new List<(Transform, EquipmentUIItem)>();
 
-    private EquipmentUIItem HeadSlot = EmptyItem;
-    private EquipmentUIItem HandSlot = EmptyItem;
+    public EquipmentUIItem HeadSlot = EmptyItem;
+    public EquipmentUIItem HandSlot = EmptyItem;
 
     private Canvas canvas;
     private float canvasScaleFactor;
