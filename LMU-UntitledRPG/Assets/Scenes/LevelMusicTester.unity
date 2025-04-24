@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &169161715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4576898348120028289, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+  m_PrefabInstance: {fileID: 914768368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &914768368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,6 +132,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 691480631415012470, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490028304962908939, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/player/footstep
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490028304962908939, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490028304962908939, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490028304962908939, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -2015671487
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490028304962908939, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1200404653
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490028304962908939, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1913132642
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490028304962908939, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -324728881
+      objectReference: {fileID: 0}
     - target: {fileID: 4576898348120028289, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
       propertyPath: m_Name
       value: Player
@@ -174,7 +211,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4576898348120028289, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1271443865}
   m_SourcePrefab: {fileID: 100100000, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
 --- !u!1001 &1147439095
 PrefabInstance:
@@ -1575,6 +1615,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4865517089190214020, guid: ff5e6a06cbd17b3409cd5439a9bdf674, type: 3}
   m_PrefabInstance: {fileID: 914768368}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1271443865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169161715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84aea8ab98b648749a84aedafd4caef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 1
+  moveSpeed: 4.2
+  interactionLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _direction: 0
+  _isInteracting: 0
+  _inDialogue: 0
+  FootStepEvent: 
 --- !u!1001 &1850960657
 PrefabInstance:
   m_ObjectHideFlags: 0

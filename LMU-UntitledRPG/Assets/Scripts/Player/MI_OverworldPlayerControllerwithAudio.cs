@@ -5,7 +5,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MI_OverworldPlayerController : MonoBehaviour
+public class MI_OverworldPlayerControllerWithAudio : MonoBehaviour
 {
     private enum Direction { Up, Down, Left, Right }
 
@@ -29,8 +29,8 @@ public class MI_OverworldPlayerController : MonoBehaviour
 
     private UI_DialogueController _dialogueController;
 
-    private float _footstepTimer;
-    public string FootStepEvent = "";
+    public float _footstepTimer;
+    const float FOOTSTEPTIME = 0.4f;
 
 
     private void Start()
@@ -66,10 +66,6 @@ public class MI_OverworldPlayerController : MonoBehaviour
             _direction = Direction.Left;
         }
         _animator.SetInteger("Direction", (int)_direction);
-        if (_footstepTimer <= 0.0f)
-        {
-            _footstepTimer = 1.0f;
-        }
     }
 
     public void OnInteract(InputValue input)
@@ -121,6 +117,13 @@ public class MI_OverworldPlayerController : MonoBehaviour
     {
         if (!_inDialogue) {
             _rb.MovePosition(_rb.position + _movement * moveSpeed * Time.fixedDeltaTime);
+            if (_movement != Vector2.zero)
+            {
+                if (_footstepTimer <= 0.0f)
+                {
+                    _footstepTimer = FOOTSTEPTIME;
+                }
+            }
             _animator.SetFloat("Speed", _movement.sqrMagnitude);
             if (_isInteracting)
             {
@@ -129,11 +132,11 @@ public class MI_OverworldPlayerController : MonoBehaviour
             }
         }
         if (_footstepTimer > 0.0f)
-            if (_footstepTimer == 1f)
-            {
-
-            }
         {
+            if (_footstepTimer == FOOTSTEPTIME)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/player/footstep");
+            }
             _footstepTimer = _footstepTimer - Time.deltaTime;
         }
     }
