@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 768703476}
-  head: {fileID: 3536680405408492155, guid: 21cbfe7a1cbda4aa4b19290c4a4f2aed, type: 3}
+  head: {fileID: 191770827184554130, guid: 374231d325f0a4e3898bda0a44652918, type: 3}
   arm: {fileID: 2984662097295133972, guid: f50e327f0245b462482d0d450300c349, type: 3}
   limbDescription: {fileID: 772221718}
   attack1: {fileID: 2122017738}

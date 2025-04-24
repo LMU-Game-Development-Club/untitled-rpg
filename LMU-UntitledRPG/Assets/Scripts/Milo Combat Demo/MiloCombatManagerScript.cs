@@ -31,10 +31,11 @@ public class MiloCombatManagerScript : MonoBehaviour
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
 
-        headSprite.onClick.AddListener(() => OnLimbSelected(headSprite));
-        armSprite.onClick.AddListener(() => OnLimbSelected(armSprite));
         lightAttackButton.onClick.AddListener(() => OnAttackSelected(0));
         heavyAttackButton.onClick.AddListener(() => OnAttackSelected(1));
+
+        // only arms have attacks now
+        OnLimbSelected(armSprite);
     }
 
     void OnLimbSelected(Button limbButton)
@@ -68,11 +69,35 @@ public class MiloCombatManagerScript : MonoBehaviour
 
     void ExecuteAttack(MiloAttackScriptTemplate attack)
     {
+        // Get enemy script reference
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
-        enemyScript.health -= attack.damage + attack.elementDamage;
+        
+        // Get hat component if available (assuming it's attached to the player or a specific limb)
+        MiloHatScript hatScript = head.GetComponent<MiloHatScript>();
+        float bonusDamage = hatScript != null ? hatScript.BonusDamage : 0f;
+        
+        // Apply damage with hat bonus
+        enemyScript.health -= attack.damage + attack.elementDamage + bonusDamage;
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
-
-        playerNextTurnPercent -= attack.turnDecay;
+        
+        // Apply hat healing effect to arm if hat exists
+        if (hatScript != null && hatScript.HealingPerAttack > 0)
+        {
+            var armScript = arm.GetComponent<MiloLimbScriptTemplate>();
+            armScript.limbHealth = Mathf.Min(armScript.limbHealth + hatScript.HealingPerAttack, armScript.limbMaxHealth);
+            Debug.Log(armScript.limbName + " healed for " + hatScript.HealingPerAttack + " health.");
+            
+            // If arm was broken and now has health, restore it
+            if (armScript.limbHealth > 0 && armScript.isBroken)
+            {
+                armScript.isBroken = false;
+                Debug.Log(armScript.limbName + " is no longer broken.");
+            }
+        }
+        
+        // Reduce turn decay by hat turn modifier if hat exists
+        float turnDecayReduction = hatScript != null ? hatScript.TurnModifier : 0f;
+        playerNextTurnPercent -= Mathf.Max(0, attack.turnDecay - turnDecayReduction);
         turnMeter.text = "Player turn chance: " + playerNextTurnPercent + "%";
 
         CheckEnemyDefeat();
@@ -111,29 +136,35 @@ public class MiloCombatManagerScript : MonoBehaviour
 
     void EnemyTurn()
     {
-         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
-            MiloAttackScriptTemplate chosenAttack = UnityEngine.Random.Range(0, 2) == 0
-                ? enemyScript.attack1.GetComponent<MiloAttackScriptTemplate>()
-                : enemyScript.attack2.GetComponent<MiloAttackScriptTemplate>();
+        var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
+        MiloAttackScriptTemplate chosenAttack = UnityEngine.Random.Range(0, 2) == 0
+            ? enemyScript.attack1.GetComponent<MiloAttackScriptTemplate>()
+            : enemyScript.attack2.GetComponent<MiloAttackScriptTemplate>();
 
-            // Randomly choose a limb (head or arm) to apply damage to
-            var chosenPlayerLimb = UnityEngine.Random.Range(0, 2) == 0 ? head : arm;
-            var chosenLimbScript = chosenPlayerLimb.GetComponent<MiloLimbScriptTemplate>();
+        var chosenLimbScript = arm.GetComponent<MiloLimbScriptTemplate>();
+        
+        // Get hat defense bonus if available
+        MiloHatScript hatScript = head.GetComponent<MiloHatScript>();
+        float defenseBonus = hatScript != null ? hatScript.BonusDefense : 0f;
+        
+        // Calculate damage after defense reduction
+        float totalDamage = Mathf.Max(0, (chosenAttack.damage + chosenAttack.elementDamage) - defenseBonus);
+        
+        // Deal damage to the chosen limb
+        chosenLimbScript.limbHealth -= totalDamage;
+        Debug.Log("Enemy used " + chosenAttack.attackName + " for " + totalDamage +
+                  " damage to the player's " + chosenLimbScript.limbName + 
+                  (defenseBonus > 0 ? " (Reduced by " + defenseBonus + " from hat)" : "") + ".");
 
-            // Deal damage to the chosen limb
-            chosenLimbScript.limbHealth -= chosenAttack.damage + chosenAttack.elementDamage;
-            Debug.Log("Enemy used " + chosenAttack.attackName + " for " + (chosenAttack.damage + chosenAttack.elementDamage) +
-                      " damage to the player's " + chosenLimbScript.limbName + ".");
+        // If limb is reduced to zero health, start its cooldown
+        if (chosenLimbScript.limbHealth <= 0)
+        {
+            chosenLimbScript.limbHealth = 0;
+            chosenLimbScript.isBroken = true;
+            chosenLimbScript.limbCooldown = chosenLimbScript.limbMaxCooldown;
+            Debug.Log(chosenLimbScript.limbName + " is broken for " + chosenLimbScript.limbCooldown + " turns.");
+        }
 
-            // If limb is reduced to zero health, start its cooldown
-            if (chosenLimbScript.limbHealth <= 0)
-            {
-                chosenLimbScript.limbHealth = 0;
-                chosenLimbScript.isBroken = true;
-                chosenLimbScript.limbCooldown = chosenLimbScript.limbMaxCooldown;
-                Debug.Log(chosenLimbScript.limbName + " is broken for " + chosenLimbScript.limbCooldown + " turns.");
-            }
-
-            CheckPlayerDefeat();
+        CheckPlayerDefeat();
     }
 }
