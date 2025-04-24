@@ -6,10 +6,9 @@ public class MiloEnemyScriptTemplate : MonoBehaviour
     public string enemyName;
     public float health;
     public float maxHealth;
-
     public GameObject attack1;
     public GameObject attack2;
-    
+
     public int attacksPerTurn;
     public string[] activeStatusEffects;
     public int[] statusBuildUps;
