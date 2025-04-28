@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
       propertyPath: limbName
-      value: Torch Arm
+      value: torch
       objectReference: {fileID: 0}
     - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
       propertyPath: limbHealth

@@ -57,6 +57,10 @@ PrefabInstance:
       value: Flower
       objectReference: {fileID: 0}
     - target: {fileID: 7449435454817166451, guid: 86bf10c7767dc49a2a4e50a2b4b37ac4, type: 3}
+      propertyPath: limbName
+      value: flower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449435454817166451, guid: 86bf10c7767dc49a2a4e50a2b4b37ac4, type: 3}
       propertyPath: TurnModifier
       value: 3
       objectReference: {fileID: 0}

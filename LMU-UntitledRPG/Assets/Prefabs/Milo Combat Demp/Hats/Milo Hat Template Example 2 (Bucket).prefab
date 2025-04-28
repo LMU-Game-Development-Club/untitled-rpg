@@ -57,6 +57,10 @@ PrefabInstance:
       value: Bucket
       objectReference: {fileID: 0}
     - target: {fileID: 7449435454817166451, guid: 86bf10c7767dc49a2a4e50a2b4b37ac4, type: 3}
+      propertyPath: limbName
+      value: bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449435454817166451, guid: 86bf10c7767dc49a2a4e50a2b4b37ac4, type: 3}
       propertyPath: BonusDamage
       value: 5
       objectReference: {fileID: 0}

@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.Mathematics;
+using System.Collections.Generic;
 
 public class MiloCombatManagerScript : MonoBehaviour
 {
     public GameObject enemy;
+    public List<GameObject> inventoryItems;
     public GameObject head;
     public GameObject arm;
     public TextMeshProUGUI limbDescription;
@@ -19,6 +20,7 @@ public class MiloCombatManagerScript : MonoBehaviour
     public Button heavyAttackButton;
     public int lives;
     private float playerNextTurnPercent;
+    public GameObject equipmentCanvas;
 
     private GameObject selectedLimb;
     private GameObject selectedAttack;
@@ -31,14 +33,22 @@ public class MiloCombatManagerScript : MonoBehaviour
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
 
+        headSprite.onClick.AddListener(OnLimbClicked);
+        armSprite.onClick.AddListener(OnLimbClicked);
+
         lightAttackButton.onClick.AddListener(() => OnAttackSelected(0));
         heavyAttackButton.onClick.AddListener(() => OnAttackSelected(1));
 
         // only arms have attacks now
-        OnLimbSelected(armSprite);
+        ArmSelected(armSprite);
     }
 
-    void OnLimbSelected(Button limbButton)
+    void OnLimbClicked()
+    {
+        equipmentCanvas.SetActive(true);
+    }
+
+    void ArmSelected(Button limbButton)
     {
         string limbType = limbButton == headSprite ? "head" : "arm";
         selectedLimb = limbType == "head" ? head : arm;
@@ -166,5 +176,30 @@ public class MiloCombatManagerScript : MonoBehaviour
         }
 
         CheckPlayerDefeat();
+    }
+
+    public void limbChanged(string limbType, string limbName)
+    {
+        GameObject limb = inventoryItems.Find(item => item.name == limbName);
+        if (limb == null)
+        {
+            Debug.LogWarning("Limb with name " + limbName + " not found in inventory.");
+            return;
+        }
+
+        if (limbType == "head")
+        {
+            head = limb;
+        }
+        else if (limbType == "arm")
+        {
+            arm = limb;
+            ArmSelected(armSprite);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid limb type: " + limbType);
+        }
+        equipmentCanvas.SetActive(false);
     }
 }
