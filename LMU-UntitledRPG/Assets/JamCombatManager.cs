@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections.Generic;
+using Unity.Mathematics;
 
-public class MiloCombatManagerScript : MonoBehaviour
+public class JamCombatManagerScript : MonoBehaviour
 {
     public GameObject enemy;
-    public List<GameObject> inventoryItems;
     public GameObject head;
     public GameObject arm;
     public TextMeshProUGUI limbDescription;
@@ -20,7 +19,9 @@ public class MiloCombatManagerScript : MonoBehaviour
     public Button heavyAttackButton;
     public int lives;
     private float playerNextTurnPercent;
-    public GameObject equipmentCanvas;
+
+    public Image backgroundImage;
+    public Image foregroundImage;
 
     private GameObject selectedLimb;
     private GameObject selectedAttack;
@@ -33,22 +34,13 @@ public class MiloCombatManagerScript : MonoBehaviour
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
 
-        headSprite.onClick.AddListener(OnLimbClicked);
-        armSprite.onClick.AddListener(OnLimbClicked);
-
+        headSprite.onClick.AddListener(() => OnLimbSelected(headSprite));
+        armSprite.onClick.AddListener(() => OnLimbSelected(armSprite));
         lightAttackButton.onClick.AddListener(() => OnAttackSelected(0));
         heavyAttackButton.onClick.AddListener(() => OnAttackSelected(1));
-
-        // only arms have attacks now
-        ArmSelected(armSprite);
     }
 
-    void OnLimbClicked()
-    {
-        equipmentCanvas.SetActive(true);
-    }
-
-    void ArmSelected(Button limbButton)
+    void OnLimbSelected(Button limbButton)
     {
         string limbType = limbButton == headSprite ? "head" : "arm";
         selectedLimb = limbType == "head" ? head : arm;
@@ -65,12 +57,14 @@ public class MiloCombatManagerScript : MonoBehaviour
         {
             return;
         }
-        
+
         var limbScript = selectedLimb.GetComponent<MiloLimbScriptTemplate>();
-        if (attackIndex == 0) {
+        if (attackIndex == 0)
+        {
             selectedAttack = limbScript.attack1.gameObject;
         }
-        else {
+        else
+        {
             selectedAttack = limbScript.attack2.gameObject;
         }
 
@@ -79,35 +73,11 @@ public class MiloCombatManagerScript : MonoBehaviour
 
     void ExecuteAttack(MiloAttackScriptTemplate attack)
     {
-        // Get enemy script reference
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
-        
-        // Get hat component if available (assuming it's attached to the player or a specific limb)
-        MiloHatScript hatScript = head.GetComponent<MiloHatScript>();
-        float bonusDamage = hatScript != null ? hatScript.BonusDamage : 0f;
-        
-        // Apply damage with hat bonus
-        enemyScript.health -= attack.damage + attack.elementDamage + bonusDamage;
+        enemyScript.health -= attack.damage + attack.elementDamage;
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
-        
-        // Apply hat healing effect to arm if hat exists
-        if (hatScript != null && hatScript.HealingPerAttack > 0)
-        {
-            var armScript = arm.GetComponent<MiloLimbScriptTemplate>();
-            armScript.limbHealth = Mathf.Min(armScript.limbHealth + hatScript.HealingPerAttack, armScript.limbMaxHealth);
-            Debug.Log(armScript.limbName + " healed for " + hatScript.HealingPerAttack + " health.");
-            
-            // If arm was broken and now has health, restore it
-            if (armScript.limbHealth > 0 && armScript.isBroken)
-            {
-                armScript.isBroken = false;
-                Debug.Log(armScript.limbName + " is no longer broken.");
-            }
-        }
-        
-        // Reduce turn decay by hat turn modifier if hat exists
-        float turnDecayReduction = hatScript != null ? hatScript.TurnModifier : 0f;
-        playerNextTurnPercent -= Mathf.Max(0, attack.turnDecay - turnDecayReduction);
+
+        playerNextTurnPercent -= attack.turnDecay;
         turnMeter.text = "Player turn chance: " + playerNextTurnPercent + "%";
 
         CheckEnemyDefeat();
@@ -151,20 +121,14 @@ public class MiloCombatManagerScript : MonoBehaviour
             ? enemyScript.attack1.GetComponent<MiloAttackScriptTemplate>()
             : enemyScript.attack2.GetComponent<MiloAttackScriptTemplate>();
 
-        var chosenLimbScript = arm.GetComponent<MiloLimbScriptTemplate>();
-        
-        // Get hat defense bonus if available
-        MiloHatScript hatScript = head.GetComponent<MiloHatScript>();
-        float defenseBonus = hatScript != null ? hatScript.BonusDefense : 0f;
-        
-        // Calculate damage after defense reduction
-        float totalDamage = Mathf.Max(0, (chosenAttack.damage + chosenAttack.elementDamage) - defenseBonus);
-        
+        // Randomly choose a limb (head or arm) to apply damage to
+        var chosenPlayerLimb = UnityEngine.Random.Range(0, 2) == 0 ? head : arm;
+        var chosenLimbScript = chosenPlayerLimb.GetComponent<MiloLimbScriptTemplate>();
+
         // Deal damage to the chosen limb
-        chosenLimbScript.limbHealth -= totalDamage;
-        Debug.Log("Enemy used " + chosenAttack.attackName + " for " + totalDamage +
-                  " damage to the player's " + chosenLimbScript.limbName + 
-                  (defenseBonus > 0 ? " (Reduced by " + defenseBonus + " from hat)" : "") + ".");
+        chosenLimbScript.limbHealth -= chosenAttack.damage + chosenAttack.elementDamage;
+        Debug.Log("Enemy used " + chosenAttack.attackName + " for " + (chosenAttack.damage + chosenAttack.elementDamage) +
+                  " damage to the player's " + chosenLimbScript.limbName + ".");
 
         // If limb is reduced to zero health, start its cooldown
         if (chosenLimbScript.limbHealth <= 0)
@@ -178,28 +142,10 @@ public class MiloCombatManagerScript : MonoBehaviour
         CheckPlayerDefeat();
     }
 
-    public void limbChanged(string limbType, string limbName)
+    void Update()
     {
-        GameObject limb = inventoryItems.Find(item => item.name == limbName);
-        if (limb == null)
-        {
-            Debug.LogWarning("Limb with name " + limbName + " not found in inventory.");
-            return;
-        }
-
-        if (limbType == "head")
-        {
-            head = limb;
-        }
-        else if (limbType == "arm")
-        {
-            arm = limb;
-            ArmSelected(armSprite);
-        }
-        else
-        {
-            Debug.LogWarning("Invalid limb type: " + limbType);
-        }
-        equipmentCanvas.SetActive(false);
+        RectTransform foregroundRect = foregroundImage.GetComponent<RectTransform>();
+        foregroundRect.sizeDelta = new Vector2(backgroundImage.rectTransform.sizeDelta.y * (playerNextTurnPercent/100.0f), foregroundRect.sizeDelta.y);
     }
 }
+
