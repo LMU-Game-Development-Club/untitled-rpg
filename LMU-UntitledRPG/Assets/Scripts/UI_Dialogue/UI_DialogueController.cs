@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UI_DialogueController : MonoBehaviour
@@ -46,6 +47,10 @@ public class UI_DialogueController : MonoBehaviour
     private bool responsesSet;
 
     private Regex regex;
+
+    //Events
+    public UnityEvent OnDialogueStart;
+    public UnityEvent OnDialogueEnd;
 
     public struct DialogueFormat {
         public DialogueFormat(string dialogueFormatData) {
@@ -245,6 +250,8 @@ public class UI_DialogueController : MonoBehaviour
             Debug.Log(dialogues[dialogueIndex]);
 
             setAllInactive(dialogueInputField, dialogueStartButton);
+        } else {
+            setAllActive(DialogueCanvas);
         }
         setAllActive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
 
@@ -259,6 +266,56 @@ public class UI_DialogueController : MonoBehaviour
         currentDialogueLineFormat = currentDialogue.DialogueFormats[currentDialogueLineKey];
 
         setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
+
+        OnDialogueStart.Invoke();
+    }
+
+    private void onNextDialogue() {
+        if (DebugMode) { Debug.Log($"Moving onto next dialogue from key {currentDialogueLineKey}"); }
+        nextDialogue = false;
+        List<string> filteredTransitions = filterKeyByDialogueLevel(currentDialogue, currentDialogue.DialogueTransitions[currentDialogueLineKey], currentDialogueIndex);
+
+        if (filteredTransitions.Count == 0) { throw new Exception($"No valid transitions found for Dialogue {DialogueNames[currentDialogueIndex]} line {currentDialogueLineKey}"); }
+        if (filteredTransitions[0] == "end") { 
+            if (DebugMode) {
+                Debug.Log("Dialogue ended");
+                setAllActive(dialogueInputField, dialogueStartButton);
+                setAllInactive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
+            } else
+            {
+                setAllInactive(DialogueCanvas);
+            }
+            OnDialogueEnd.Invoke();
+            return;
+        }
+
+        bool isResponse = true;
+        foreach (string key in filteredTransitions) {
+            isResponse = isResponse && currentDialogue.DialogueResponses.Contains(key);
+        }
+
+        if (!isResponse) {
+            currentDialogueLineKey = filteredTransitions[0];
+            currentDialogueLineFormat = currentDialogue.DialogueFormats[currentDialogueLineKey];
+            setNewDialogueLine(currentDialogue, currentDialogueLineFormat, currentDialogueLineKey);
+        } else {
+            setResponses(currentDialogue, filteredTransitions);
+        }
+    }
+
+    private void onResponseClick() {
+        if (DebugMode) { Debug.Log($"Response Clicked: {currentDialogueLineKey}"); }
+        responseClicked = false;
+        if (activeDialogueResponseButtons.Count != 0) {
+            foreach (GameObject responseButton in activeDialogueResponseButtons) {
+                responseButton.GetComponent<UI_DialogueOnClick>().onClick.RemoveAllListeners();
+                Destroy(responseButton);
+            }
+        }
+        activeDialogueResponseButtons.Clear();
+        responsesSet = false;
+
+        onNextDialogue();
     }
 
     private void onNextDialogue() {

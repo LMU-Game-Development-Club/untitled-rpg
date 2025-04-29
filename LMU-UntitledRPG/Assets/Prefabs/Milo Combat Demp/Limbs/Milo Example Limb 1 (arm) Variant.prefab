@@ -53,8 +53,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: attack1
+      value: 
+      objectReference: {fileID: 5355947860677065305, guid: c116034bac8f6487e8010e198df9c6f3, type: 3}
+    - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: attack2
+      value: 
+      objectReference: {fileID: 250509196205020972, guid: df10410810cea40d3bfcc800687edece, type: 3}
+    - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
       propertyPath: isBroken
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
       propertyPath: limbName
@@ -62,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
       propertyPath: limbHealth
-      value: 100
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: limbCooldown
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
       propertyPath: limbMaxHealth

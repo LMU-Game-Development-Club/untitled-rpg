@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - ExitButton
+  - Ex1
+  - Ex2
+  - Ex3
+  - UIElement
   layers:
   - Default
   - TransparentFX
