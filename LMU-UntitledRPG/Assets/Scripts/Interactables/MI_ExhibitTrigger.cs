@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 public enum Exhibit
 {
-    None,
     Exhibit1,
     Exhibit2,
     Exhibit3,
@@ -18,10 +17,29 @@ public enum Exhibit
 
 public class UI_ExhibitTrigger : MonoBehaviour
 {
-    public UnityEvent EnterExhibit;
     public Exhibit ExhibitToEnter; // Set this in inspector
-    private void OnTriggerEnter(Collider other)
+    public UnityEvent EnterExhibit;
+
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        EnterExhibit.Invoke();
+        if (other.CompareTag("Player"))
+        {
+            EnterExhibit.Invoke();
+        }
+    }
+
+    private void Awake()
+    {
+        if (EnterExhibit == null)
+        {
+            EnterExhibit = new UnityEvent();
+        }
+    }
+
+    public void Start()
+    {
+        EnterExhibit.AddListener(() => {
+            GameManager.Instance.LoadExhibit(ExhibitToEnter);
+        });
     }
 }
