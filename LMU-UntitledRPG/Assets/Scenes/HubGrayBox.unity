@@ -799,6 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfeb17e054314ca3a0cadfa6b9b4651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &535637106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1393,7 @@ GameObject:
   - component: {fileID: 1033435980}
   - component: {fileID: 1033435979}
   - component: {fileID: 1033435981}
+  - component: {fileID: 1033435982}
   m_Layer: 0
   m_Name: 'Exhibit 3 Trigger '
   m_TagString: Ex3
@@ -1515,6 +1517,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1033435982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033435978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6ae9014d979458c8b05ba982658f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exhibitNumber: 3
 --- !u!1 &1037676504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1812,7 @@ GameObject:
   - component: {fileID: 1103677749}
   - component: {fileID: 1103677748}
   - component: {fileID: 1103677750}
+  - component: {fileID: 1103677751}
   m_Layer: 0
   m_Name: Exhibit 1 Trigger
   m_TagString: Ex1
@@ -1920,6 +1936,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1103677751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103677747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6ae9014d979458c8b05ba982658f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exhibitNumber: 1
 --- !u!1 &1109635284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,6 +2668,7 @@ GameObject:
   - component: {fileID: 2045563473}
   - component: {fileID: 2045563472}
   - component: {fileID: 2045563474}
+  - component: {fileID: 2045563475}
   m_Layer: 0
   m_Name: 'Exhibit 2 Trigger '
   m_TagString: Ex2
@@ -2762,6 +2792,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2045563475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045563471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6ae9014d979458c8b05ba982658f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exhibitNumber: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
