@@ -1,0 +1,82 @@
+[
+	{
+		"DialogueName": "Main_Intro",
+		"DialogueData": "1{;}0~The protagonist wakes up in storage. It is unaffected by *draining* due to being a blank canvas. Contacted by the Spirit of the Art Urn, and is given special ”paint” powers. Meet some NPCs and learn more about the world.{>}2{n}2{;}0~Heeheehee{>}end{n}",
+		"FormattingData": "1:Narrator:NarratorPortrait:NarratorFrame:NarratorSpeechSound{n}2:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_Intro",
+		"DialogueData": "1{;}0~So… where are all of the Dragons and dungeons{>}2{n}2{;}0~You silly knight-ith, this is the renaissance exhibit-ith{>}3{n}3{;}0~Do you have a lisp now?{>}4{n}4{;}0~No, I’m talking in the manner people talked-ith in during this art period{>}5{n}5{;}0~Ith, ith, ith. So am I fancy now-ith?{>}6{n}6{;}0~I’m afraid-ith not{>}7{n}7{;}0~Darn-ith{>}end{n}",
+		"FormattingData": "1:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}2:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}3:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}4:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}5:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}6:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}7:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_Enemies",
+		"DialogueData": "1{;}0~Raaaggghhh{>}2{n}2{;}0~Look out! Enemies ahead, it looks like they’re corrupting more of the {>}3{n}paintings 3{;}0~They could be chill?{>}4{n}4{;}0~Raaaggghhh{>}5{n}5{;}0~They’re speaking gibberish and corrupting another painting. They are NOT chill!{>}6{n}6{;}0~Raaaggghhh-ith{>}7{n}7{;}0~But they are fancy!{>}end{n}",
+		"FormattingData": "1:RenaissanceEnemies:RenaissanceEnemiesPortrait:RenaissanceEnemiesFrame:RenaissanceEnemiesSpeechSound{n}2:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}3:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}4:RenaissanceEnemies:RenaissanceEnemiesPortrait:RenaissanceEnemiesFrame:RenaissanceEnemiesSpeechSound{n}5:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}6:RenaissanceEnemies:RenaissanceEnemiesPortrait:RenaissanceEnemiesFrame:RenaissanceEnemiesSpeechSound{n}7:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_BullyEsquire",
+		"DialogueData": "1{;}0~Oh dearest me-ith, greatest apologies for my brutish manner-ith. Utmost thanks for saving me from this state-ith. What is your name kind hero-ith{>}2{n}2{;}0~I’ve gone by many names, Quinn, weirdo, freak, Quinn, but you may call me Madam Sir Quinn the Eighteenth of house.{>}3{n}3{;}0~Thank you kind knight. The vile corruption had hath taken me over-ith. I felt so miserable, my body filled with rage and dismay. I didn’t feel like myself. I felt monstrous. {>}4{n}4{;}0~So you're chill now! I told you they were chill!{>}5{n}5{;}0~Sigh-ith{>}end{n}",
+		"FormattingData": "1:BullyEsquire:BullyEsquirePortrait:BullyEsquireFrame:BullyEsquireSpeechSound{n}2:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}3:BullyEsquire:BullyEsquirePortrait:BullyEsquireFrame:BullyEsquireSpeechSound{n}4:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}5:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_BluePaintingIntro",
+		"DialogueData": "1{;}0~Time passes, and you encounter a painting of a bearded man in blue. He asks for your help and he will give you a helping hand in return. He asks you to restore his three friends in the painting. Their paint is has been taken by three different groups of NPCs and it is Quinn’s job to find them and bring them back{>}end{n}",
+		"FormattingData": "1:Narrator:NarratorPortrait:NarratorFrame:NarratorSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_BluePaintingQuestIntro",
+		"DialogueData": "1{;}0~Stop-ith traveler, Praytell, might thou have-ith the time to assist me in my peril? My comrades have lost the color in their apparel, might though be able to scour the lands and findith their color. If though succeeds, I may grant a piece of weaponry to aid you on your journey.{>}2{n}",
+		"FormattingData": "1:BluePainting:BluePaintingPortrait:BluePaintingFrame:BluePaintingSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_BluePaintingQuestComplete",
+		"DialogueData": "1{;}0~Thank you traveller for helping my comrades. As promised, here is the weapon I gift thee. Be warned, the weapon has not been removed from its encasement.{>}2{n}2{;}0~*Quinn pulled with all their might, only for the sword to not come out*{>}3{n}3{;}0~Hey wait… Isn’t this thing only for the most worthy warri-.{>}4{n}4{;}0~*Quinn picked up the entire sword… but… the rock was still on it, cue awkward silence between the two and the spectators*{>}5{n}5{;}0~I got it!{>}6{n}6{;}0~.... *sigh* Let’s just go find this knight…{>}7{n}7{;}0~-You got the Sword! (with THE rock)-{>}end{n}",
+		"FormattingData": "1:BluePainting:BluePaintingPortrait:BluePaintingFrame:BluePaintingSpeechSound{n}2:Narrator:NarratorPortrait:NarratorFrame:NarratorSpeechSound{n}3:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}4:Narrator:NarratorPortrait:NarratorFrame:NarratorSpeechSound{n}5:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}6:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}7:Narrator:NarratorPortrait:NarratorFrame:NarratorSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_LonaMisaIntro",
+		"DialogueData": "1{;}0~Halt Traveler. Who are you?{>}2{n}2{;}0~Nice to meet you, I’m Quinn, who are you?{>}3{n}3{;}0~Who am I? WHO AM I? I’m like gagged..{>}4{n}4{;}0~Sorry, oh I mean sorry-ith?{>}5{n}5{;}0~like, I’m the most popular painting, in like, the worrlldd, how dare you not know who I am? Get out of my, like, sight.{>}6{n}6{;}0~I’m trying to but I can’t. This door seems locked.{>}7{n}7{;}0~ugh, it’s like so easy, you just need to find the wings. They should be like, in the rooms nearby, with that Knockoff, Mona.{>}8{n}8{;}0~thanks….{>}9{n}9{;}0~UGHHHHH.{>}end{n}",
+		"FormattingData": "1:LonaMisa:LonaMisaPortrait:LonaMisaFrame:LonaMisaSpeechSound{n}2:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}3:LonaMisa:LonaMisaPortrait:LonaMisaFrame:LonaMisaSpeechSound{n}4:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}5:LonaMisa:LonaMisaPortrait:LonaMisaFrame:LonaMisaSpeechSound{n}6:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}7:LonaMisa:LonaMisaPortrait:LonaMisaFrame:LonaMisaSpeechSound{n}8:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}9:LonaMisa:LonaMisaPortrait:LonaMisaFrame:LonaMisaSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_Mona",
+		"DialogueData": "1{;}0~Hey, A painting said Lona said I need to find gargoyle wings hear?{>}2{n}2{;}0~Who-ith?{>}3{n}3{;}0~Kinda looks like you.{>}4{n}4{;}0~OHHHHHHH! I that complete knock-off-ith. She-ith is very rudeith. She-ith left the wings here upon my area. Though may claim them and bring them back. I wish nothing to do with her-ith.{>}5{n}5{;}0~Thanks{>}end{n}",
+		"FormattingData": "1:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}2:Mona:MonaPortrait:MonaFrame:MonaSpeechSound{n}3:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}4:Mona:MonaPortrait:MonaFrame:MonaSpeechSound{n}5:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_LonaMisaOutro",
+		"DialogueData": "1{;}0~Slay, king! Can’t believe you got them back from that total poser. Now, get, like out of here.{>}2{n}2{;}0~See you later faker!{>}3{n}3{;}0~WHAT!?{>}end{n}",
+		"FormattingData": "1:LonaMisa:LonaMisaPortrait:LonaMisaFrame:LonaMisaSpeechSound{n}2:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}3:LonaMisa:LonaMisaPortrait:LonaMisaFrame:LonaMisaSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_KingIntro",
+		"DialogueData": "1{;}0~God it’s dark in here, do we need to turn on the lights or something???{>}2{n}2{;}0~Who has the ARROGANCE to enter my domain?!{>}3{n}3{;}0~Who you calling arrogant! >:O{>}4{n}4{;}0~Cower and tremble feeble creatures before the real strength of a KING!{>}5{n}5{;}0~I-Is THIS the king? God he looks awful… This paint draining incident is really getting out of hand… Come on Quinn! Let’s clean up this mess!{>}end{n}",
+		"FormattingData": "1:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}2:King:KingPortrait:KingFrame:KingSpeechSound{n}3:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}4:King:KingPortrait:KingFrame:KingSpeechSound{n}5:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Renaissance_KingMidFightTransformation",
+		"DialogueData": "1{;}0~NO! This cannot happen! I will not lose to someone like him!{>}2{n}2{;}0~*Goes into gargoyle form*{>}3{n}3{;}0~Perish!{>}end{n}",
+		"FormattingData": "1:King:KingPortrait:KingFrame:KingSpeechSound{n}2:Narrator:NarratorPortrait:NarratorFrame:NarratorSpeechSound{n}3:King:KingPortrait:KingFrame:KingSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Surrealism_Intro",
+		"DialogueData": "1{;}0~So this place is weird, even for me.{>}2{n}2{;}0~BEWARE! This is the Surrealism Exhibit, a place of curiosities and kooks{>}3{n}3{;}0~This place sounds like home.{>}4{n}4{;}0~No, this place is quite dangerous. We are due to enter a land of strange beings and shadows. Whatever you do, keep this in mind, and I’ll only say this once{>}5{n}5{;}0~Ok, I’m listening{>}6{n}6{;}0~Gadji beri bimba glandridi laula lonni cadori.{>}7{n}7{;}0~Huh?{>}8{n}8{;}0~Gadji beri bimba, but also don’t forget to glandridi laula lonni cadori!{>}9{n}9{;}0~…What!? What language is that?{>}10{n}10{;}0~Dada! Gramma berida, bimbala, gradijali holali.{>}11{n}11{;}0~Please speak normally for once!{>}12{n}12{;}0~Gaba baobab boo?{>}end{n}",
+		"FormattingData": "1:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}2:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}3:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}4:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}5:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}6:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}7:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}8:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}9:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}10:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}11:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}12:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}"
+	},
+	{
+		"DialogueName": "HusbandWifeNPCQuestIntro",
+		"DialogueData": "1{;}0~My love, you are as difficult to look at as the sun on a clear day!{>}2{n}2{;}0~You are as foul as a skunk’s buttocs!{>}3{n}3{;}0~…Zimzim urulla brussala.{>}4{n}4{;}0~See? Even the urn believes your complexion is that of a door frame.{>}5{n}5{;}0~If you hate each other’s looks, why are you married?{>}6{n}6{;}0~Ah, my dearest creature, love is best when blind, but we lost our bags, and must suffer the bearing of our appearances.{>}7{n}7{;}0~But we have misplaced our precious garments. Please kind creature, won’t you help us. We may give you something in return as bountiful as our love used to be.{>}8{n}8{;}0~I’ve got this in the bag{>}end{n}",
+		"FormattingData": "1:Husband:HusbandPortrait:HusbandFrame:HusbandSpeechSound{n}2:Wife:WifePortrait:WifeFrame:WifeSpeechSound{n}3:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}4:Husband:HusbandPortrait:HusbandFrame:HusbandSpeechSound{n}5:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}6:Husband:HusbandPortrait:HusbandFrame:HusbandSpeechSound{n}7:Wife:WifePortrait:WifeFrame:WifeSpeechSound{n}8:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}"
+	},
+	{
+		"DialogueName": "HusbandWifeNPCQuestComplete",
+		"DialogueData": "1{;}0~Oh my love…. You are so… Beautiful, as beautiful as the darkness that soothes me to sleep{>}2{n}2{;}0~And you… Are as beautiful as a starless starry night sky, oh how I love you so….{>}3{n}3{;}0~I love you more honey…{>}4{n}4{;}0~No I love you my love…{>}5{n}5{;}0~NO I lov-{>}6{n}6{;}0~Yes, yes, I understand. Now give me shiny!{>}7{n}7{;}0~Oh yes, um let’s see what we have here. This is a clock hand-{>}8{n}8{;}0~I want shiny now!{>}9{n}9{;}0~Jolifanto bambla.{>}10{n}10{;}0~Yes, as your tutor says, all good things come in time{>}11{n}11{;}0~Thank you Mr. and Mrs. bag heads{>}end{n}",
+		"FormattingData": "1:Husband:HusbandPortrait:HusbandFrame:HusbandSpeechSound{n}2:Wife:WifePortrait:WifeFrame:WifeSpeechSound{n}3:Husband:HusbandPortrait:HusbandFrame:HusbandSpeechSound{n}4:Wife:WifePortrait:WifeFrame:WifeSpeechSound{n}5:Husband:HusbandPortrait:HusbandFrame:HusbandSpeechSound{n}6:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}7:Wife:WifePortrait:WifeFrame:WifeSpeechSound{n}8:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}9:ArtSpirit:ArtSpiritPortrait:ArtSpiritFrame:ArtSpiritSpeechSound{n}10:Wife:WifePortrait:WifeFrame:WifeSpeechSound{n}11:Quinn:QuinnPortrait:QuinnFrame:QuinnSpeechSound{n}"
+	},
+	{
+		"DialogueName": "Template",
+		"DialogueData": "1{;}0~{>}2{n}",
+		"FormattingData": "1:Temp:TempPortrait:TempFrame:TempSpeechSound{n}"
+	}
+]
