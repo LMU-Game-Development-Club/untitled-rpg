@@ -18,9 +18,9 @@ public enum Exhibit
 public class UI_ExhibitTrigger : MonoBehaviour
 {
     public Exhibit ExhibitToEnter; // Set this in inspector
-    public UnityEvent EnterExhibit;
+    private UnityEvent EnterExhibit;
 
-    public void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -36,7 +36,7 @@ public class UI_ExhibitTrigger : MonoBehaviour
         }
     }
 
-    public void Start()
+    private void Start()
     {
         EnterExhibit.AddListener(() => {
             GameManager.Instance.LoadExhibit(ExhibitToEnter);
