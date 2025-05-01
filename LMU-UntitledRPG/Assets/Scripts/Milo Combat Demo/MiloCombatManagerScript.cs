@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 
 public class MiloCombatManagerScript : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class MiloCombatManagerScript : MonoBehaviour
 
     private GameObject selectedLimb;
     private GameObject selectedAttack;
-
+    
     // TODO: Add limb cooldown logic
     void Start()
     {
@@ -119,8 +120,8 @@ public class MiloCombatManagerScript : MonoBehaviour
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
         if (enemyScript.health <= 0)
         {
-            // if enemy is defeated, end the combat or show victory message
-            Debug.Log("Enemy defeated!");
+            // Load a temporary scene or victory screen
+            UnityEngine.SceneManagement.SceneManager.LoadScene("TempVictoryScene");
         }
     }
 
