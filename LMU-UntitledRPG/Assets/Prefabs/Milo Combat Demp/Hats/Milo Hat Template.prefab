@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4959194350279522630}
-  - component: {fileID: 8438239092084696250}
+  - component: {fileID: 7449435454817166451}
   m_Layer: 0
-  m_Name: Milo Limb Template
+  m_Name: Milo Hat Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8438239092084696250
+--- !u!114 &7449435454817166451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 674719525672016014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f5a5d36f922a4d0c87bb641867ee0e9, type: 3}
+  m_Script: {fileID: 11500000, guid: b6e02617d5a27477e9c70c5e5f56ae06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limbName: 
-  attacks: []
-  limbHealth: 0
-  limbMaxHealth: 0
-  isBroken: 0
-  limbMaxCooldown: 0
-  limbDescription: 
+  hatName: 
+  BonusDamage: 0
+  BonusDefense: 0
+  TurnModifier: 0
+  HealingPerAttack: 0
