@@ -281,11 +281,9 @@ public class UI_DialogueController : MonoBehaviour
                 Debug.Log("Dialogue ended");
                 setAllActive(dialogueInputField, dialogueStartButton);
                 setAllInactive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
-            } else
-            {
+            } else { 
                 setAllInactive(DialogueCanvas);
-            }
-            OnDialogueEnd.Invoke();
+            }    
             return;
         }
 
