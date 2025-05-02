@@ -270,7 +270,6 @@ public class UI_DialogueController : MonoBehaviour
         OnDialogueStart.Invoke();
     }
 
-
     private void onNextDialogue() {
         if (DebugMode) { Debug.Log($"Moving onto next dialogue from key {currentDialogueLineKey}"); }
         nextDialogue = false;
