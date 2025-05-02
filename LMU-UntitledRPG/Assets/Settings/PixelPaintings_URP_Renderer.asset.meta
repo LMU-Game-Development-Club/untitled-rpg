@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ea80957b8b027cd41bcb2d20932c37f9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 316873
+  packageName: "Pixel Paintings Pack \u2013 Framed Art for Cozy Interiors"
+  packageVersion: 1.0
+  assetPath: Assets/Settings/PixelPaintings_URP_Renderer.asset
+  uploadId: 749217
