@@ -128,13 +128,18 @@ public class UI_EquipmentController : MonoBehaviour
         }
     }
 
-    void UpdateSlots() {
+    void UpdateSlots() {    
+        MiloCombatManagerScript combatManager = transform.parent.GetComponent<MiloCombatManagerScript>();
         if (HeadSlot.name == "Empty") {
             HeadSlotRenderer.color = Color.black;
             HeadSlotRenderer.sprite = null;
         } else {
             HeadSlotRenderer.color = Color.white;
             HeadSlotRenderer.sprite = HeadSlot.icon;
+
+            if (combatManager != null) {
+                combatManager.limbChanged("Head", HeadSlot.name);
+            }
         }
 
         if (HandSlot.name == "Empty") {
@@ -143,6 +148,10 @@ public class UI_EquipmentController : MonoBehaviour
         } else {
             HandSlotRenderer.color = Color.white;
             HandSlotRenderer.sprite = HandSlot.icon;
+
+            if (combatManager != null) {
+                combatManager.limbChanged("Hand", HandSlot.name);
+            }
         }
     }
 }

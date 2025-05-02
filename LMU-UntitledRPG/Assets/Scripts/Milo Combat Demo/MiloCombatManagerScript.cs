@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
+
 
 public class MiloCombatManagerScript : MonoBehaviour
 {
@@ -24,7 +26,7 @@ public class MiloCombatManagerScript : MonoBehaviour
 
     private GameObject selectedLimb;
     private GameObject selectedAttack;
-
+    
     // TODO: Add limb cooldown logic
     void Start()
     {
@@ -119,8 +121,8 @@ public class MiloCombatManagerScript : MonoBehaviour
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
         if (enemyScript.health <= 0)
         {
-            // if enemy is defeated, end the combat or show victory message
-            Debug.Log("Enemy defeated!");
+            // Load a temporary scene or victory screen
+            UnityEngine.SceneManagement.SceneManager.LoadScene("TempVictoryScene");
         }
     }
 
@@ -150,7 +152,6 @@ public class MiloCombatManagerScript : MonoBehaviour
         MiloAttackScriptTemplate chosenAttack = UnityEngine.Random.Range(0, 2) == 0
             ? enemyScript.attack1.GetComponent<MiloAttackScriptTemplate>()
             : enemyScript.attack2.GetComponent<MiloAttackScriptTemplate>();
-
         var chosenLimbScript = arm.GetComponent<MiloLimbScriptTemplate>();
         
         // Get hat defense bonus if available
@@ -186,7 +187,6 @@ public class MiloCombatManagerScript : MonoBehaviour
             Debug.LogWarning("Limb with name " + limbName + " not found in inventory.");
             return;
         }
-
         if (limbType == "head")
         {
             head = limb;
