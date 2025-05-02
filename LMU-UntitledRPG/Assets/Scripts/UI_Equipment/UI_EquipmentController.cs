@@ -60,7 +60,7 @@ public class UI_EquipmentController : MonoBehaviour
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            Vector2 mousePosition = new Vector2(Input.mousePosition.x / canvasScaleFactor, Input.mousePosition.y / canvasScaleFactor);
+            Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
             foreach ((Transform, EquipmentUIItem) pair in EquipmentContainers) {
                 Transform container = pair.Item1;
