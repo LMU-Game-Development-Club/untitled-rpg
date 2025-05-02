@@ -283,6 +283,8 @@ public class UI_DialogueController : MonoBehaviour
                 setAllInactive(dialoguePortrait.gameObject, dialogueFrame.gameObject, dialogueText.gameObject, dialogueTextBackground);
             } else { 
                 setAllInactive(DialogueCanvas);
+                Debug.Log("Dialogue end");
+                GameManager.Instance.LoadCombat();
             }    
             return;
         }

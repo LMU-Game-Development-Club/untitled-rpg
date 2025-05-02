@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    
     private void Awake()
     {
         if (Instance == null)
@@ -30,9 +31,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadCombat()
+    {
+        ChangeScene("Combat");
+    }
+
     public void LoadMainMenu()
     {
         ChangeScene("MainMenu");
+    }
+
+    public void LoadEx(){
+        ChangeScene("Exhibit1");
     }
 
     private void ChangeScene(string sceneName)

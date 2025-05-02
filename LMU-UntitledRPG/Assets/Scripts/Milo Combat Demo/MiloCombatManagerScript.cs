@@ -122,7 +122,7 @@ public class MiloCombatManagerScript : MonoBehaviour
         if (enemyScript.health <= 0)
         {
             // Load a temporary scene or victory screen
-            UnityEngine.SceneManagement.SceneManager.LoadScene("TempVictoryScene");
+            GameManager.Instance.LoadEx();
         }
     }
 
