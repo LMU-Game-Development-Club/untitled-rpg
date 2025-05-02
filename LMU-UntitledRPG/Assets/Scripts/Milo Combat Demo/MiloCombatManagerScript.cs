@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 
+
 public class MiloCombatManagerScript : MonoBehaviour
 {
     public GameObject enemy;
@@ -151,7 +152,6 @@ public class MiloCombatManagerScript : MonoBehaviour
         MiloAttackScriptTemplate chosenAttack = UnityEngine.Random.Range(0, 2) == 0
             ? enemyScript.attack1.GetComponent<MiloAttackScriptTemplate>()
             : enemyScript.attack2.GetComponent<MiloAttackScriptTemplate>();
-
         var chosenLimbScript = arm.GetComponent<MiloLimbScriptTemplate>();
         
         // Get hat defense bonus if available
@@ -187,7 +187,6 @@ public class MiloCombatManagerScript : MonoBehaviour
             Debug.LogWarning("Limb with name " + limbName + " not found in inventory.");
             return;
         }
-
         if (limbType == "head")
         {
             head = limb;

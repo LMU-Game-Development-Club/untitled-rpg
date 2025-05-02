@@ -13,7 +13,7 @@ public class EnemyInCombat_ES : MonoBehaviour
     public ES_EnemyAttack[] attacks;
     public int numOfTurns;
     public float health;
-    public string name;
+    public string enemyName;
     public bool isDead = false;
 
     public void TakeDamage(float damageTaken) {
