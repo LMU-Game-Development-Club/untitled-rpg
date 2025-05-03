@@ -14,6 +14,9 @@ public class DialogueController : MonoBehaviour {
 
     private Dictionary<string, DialogueLineData> lineLookup;
 
+    public bool hasCombat;
+    public string enemyName;
+
     private void Start() {
         if (dialogueData == null || dialogueData.Lines.Count == 0) {
             Debug.LogError("DialogueController: Dialogue data not assigned or empty.");
@@ -69,6 +72,10 @@ public class DialogueController : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         ui.ClearResponses();
         ui.gameObject.SetActive(false);
+        if(hasCombat){
+            GameManager.Instance.LoadCombat(enemyName);
+        }
+
         OnDialogueEnd?.Invoke();
     }
 }

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public RectTransform fader;
     [SerializeField] public UI_Combat combatSystem;
 
+    public string combatEnemyName;
+
     private void Awake()
     {
         if (Instance == null)
@@ -61,8 +63,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadCombat()
+    public void LoadCombat(string enemyName)
     {
+        combatEnemyName = enemyName;
         StartCoroutine(CombatEnterRoutine());
     }
 
@@ -96,13 +99,15 @@ public class GameManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeToBlack());
 
+        combatSystem.gameObject.SetActive(true);
+
         //Here put which combat you wanna start
         // rn there are the following options:
         // Archer
         // Knight
         // Priest
         // Soldier
-        combatSystem.StartCombat("Soldier");
+        combatSystem.StartCombat(combatEnemyName);
         
         yield return new WaitForSeconds(0.3f); // Optional pause
         yield return StartCoroutine(FadeFromBlack());
@@ -111,6 +116,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator CombatExitRoutine()
     {
         yield return StartCoroutine(FadeToBlack());
+
+        combatSystem.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(0.3f); // Optional pause
         yield return StartCoroutine(FadeFromBlack());

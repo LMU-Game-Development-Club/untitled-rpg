@@ -284,7 +284,7 @@ public class UI_DialogueController : MonoBehaviour
             } else { 
                 setAllInactive(DialogueCanvas);
                 Debug.Log("Dialogue end");
-                GameManager.Instance.LoadCombat();
+                // GameManager.Instance.LoadCombat();
             }    
             return;
         }
