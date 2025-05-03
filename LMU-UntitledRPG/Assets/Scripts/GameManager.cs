@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] public RectTransform fader;
-    [SerializeField] public GameObject Combat;
+    [SerializeField] public UI_Combat combatSystem;
 
     private void Awake()
     {
@@ -15,13 +15,16 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Combat.SetActive(false);
+            DontDestroyOnLoad(combatSystem.transform.parent.gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
         }
+
+        combatSystem.PlayerLoseCombat.AddListener(() => CombatExitRoutine());
+        combatSystem.PlayerWinCombat.AddListener(() => CombatExitRoutine());
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -93,7 +96,13 @@ public class GameManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeToBlack());
 
-        Combat.SetActive(true);
+        //Here put which combat you wanna start
+        // rn there are the following options:
+        // Archer
+        // Knight
+        // Priest
+        // Soldier
+        combatSystem.StartCombat("Soldier");
         
         yield return new WaitForSeconds(0.3f); // Optional pause
         yield return StartCoroutine(FadeFromBlack());
@@ -102,8 +111,6 @@ public class GameManager : MonoBehaviour
     private IEnumerator CombatExitRoutine()
     {
         yield return StartCoroutine(FadeToBlack());
-
-        Combat.SetActive(false);
 
         yield return new WaitForSeconds(0.3f); // Optional pause
         yield return StartCoroutine(FadeFromBlack());
