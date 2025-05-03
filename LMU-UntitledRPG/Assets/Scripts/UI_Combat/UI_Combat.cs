@@ -171,6 +171,8 @@ public class UI_Combat : MonoBehaviour {
     private GameObject staff;
     private GameObject sword;
     private GameObject equipItemsWarning;
+    private GameObject playerShield;
+    private GameObject enemyShield;
 
     private float localTime;
 
@@ -224,6 +226,7 @@ public class UI_Combat : MonoBehaviour {
             TransitionPlayerGUI(PlayerGUI.MainView);
             TransitionEnemyAnimation(EnemyAnimation.Idle);
             HandleEquipmentChange();
+            UpdateGUI();
 
             combatCanvas.enabled = true;
         } else {
@@ -245,12 +248,15 @@ public class UI_Combat : MonoBehaviour {
 
         enemyHealthBar = transform.Find("EnemyHealthBar").GetComponent<UI_CombatBar>();
         enemyHealthBar.SetBarFill(1);
+        enemyHealth = 100;
 
         healthBar = transform.Find("HealthBar").GetComponent<UI_CombatBar>();
         healthBar.SetBarFill(1);
+        playerHealth = playerHealthMax;
 
         actionBar = transform.Find("TurnBar").GetComponent<UI_CombatBar>();
         actionBar.SetBarFill(1);
+        playerTurnChance = playerTurnDefault;
 
         enemyRenderer = transform.Find("EnemyRenderer").GetComponent<Image>();
 
@@ -267,12 +273,21 @@ public class UI_Combat : MonoBehaviour {
         EquipmentController.EquipmentChanged.AddListener(() => HandleEquipmentChange());
 
         actionMoveHat = transform.Find("ActionMoveHat").gameObject;
-        actionMoveHat.GetComponent<UI_CombatOnClick>().onClick.AddListener(() => PlayerPickedAction1());
+        actionMoveHat.GetComponent<UI_CombatOnClick>().onClick.AddListener(() => {
+            playerSelectedAction = playerActions[0];
+            ProcessPlayerActionChoice();
+        });
 
         actionMoveLimb = transform.Find("ActionMoveLimb").gameObject;
-        actionMoveLimb.GetComponent<UI_CombatOnClick>().onClick.AddListener(() => PlayerPickedAction2());
+        actionMoveLimb.GetComponent<UI_CombatOnClick>().onClick.AddListener(() => {
+            playerSelectedAction = playerActions[1];
+            ProcessPlayerActionChoice();
+        });
 
         equipItemsWarning = transform.Find("EquipItemsWarning").gameObject;
+        
+        playerShield = transform.Find("PlayerShield").gameObject;
+        enemyShield = transform.Find("EnemyShield").gameObject;
 
         crossbow = transform.Find("Crossbow").gameObject;
         staff = transform.Find("Staff").gameObject;
@@ -315,7 +330,7 @@ public class UI_Combat : MonoBehaviour {
                 TransitionPlayerGUI(PlayerGUI.MainView);
                 break;
             case CombatState.PlayerActionSequence:
-                ProcessPlayerAction();
+                ProcessPlayerActionEffect();
                 playerActionSequenceEnd = localTime + playerActionSequenceLength;
                 break;
             case CombatState.EnemyMove:
@@ -342,6 +357,8 @@ public class UI_Combat : MonoBehaviour {
             case PlayerGUI.MainView:
                 SetObjsActive(true, attackButton, equipmentButton);
                 SetObjsActive(false, backButton, actionMoveHat, actionMoveLimb, equipItemsWarning, EquipmentController.gameObject);
+
+                UpdateGUI();
                 break;
             case PlayerGUI.ActionView:
                 SetObjsActive(false, attackButton, equipmentButton);
@@ -400,34 +417,24 @@ public class UI_Combat : MonoBehaviour {
         }
     }
 
-    private void PlayerPickedAction1() {
-        TransitionPlayerGUI(PlayerGUI.NotPlayerMoveView);
-        playerSelectedAction = playerActions[0];
-        TransitionCombatState(CombatState.PlayerActionSequence);
-    }
-
-    private void PlayerPickedAction2() {
-        TransitionPlayerGUI(PlayerGUI.NotPlayerMoveView);
-        playerSelectedAction = playerActions[1];
-        TransitionCombatState(CombatState.PlayerActionSequence);
-    }
-
     private void HandleCombatState(CombatState combatState) {
         switch (combatState) {
             case CombatState.PlayerMove:
                 break;
             case CombatState.PlayerActionSequence:
                 if (localTime > playerActionSequenceEnd) {
-                    TransitionCombatState(CombatState.EnemyMove);
+                    ProcessPlayerActionChance();
                 }
                 break;
             case CombatState.EnemyMove:
                 break;
             case CombatState.EnemyActionSequence:
                 if (localTime > enemyActionSequenceEnd) {
-                    ProcessEnemyAction();
+                    ProcessEnemyActionEffect();
                     TransitionCombatState(CombatState.PlayerMove);
                     TransitionEnemyAnimation(EnemyAnimation.Idle);
+                    playerTurnChance = 1;
+                    UpdateGUI();
                 }
                 break;
         }
@@ -522,7 +529,15 @@ public class UI_Combat : MonoBehaviour {
         }
     }
 
-    private void ProcessPlayerAction() {
+    private void ProcessPlayerActionChoice() {
+        playerTurnChance -= playerSelectedAction.turnBarDecay;
+        UpdateGUI();
+
+        TransitionPlayerGUI(PlayerGUI.NotPlayerMoveView);
+        TransitionCombatState(CombatState.PlayerActionSequence);
+    }
+
+    private void ProcessPlayerActionEffect() {
         switch (playerSelectedAction.passive) {
             case PassiveEffect.Burn:
                 break;
@@ -530,6 +545,7 @@ public class UI_Combat : MonoBehaviour {
                 break;
             case PassiveEffect.Shield:
                 playerShieldActive = true;
+                UpdateGUI();
                 break;
         }
 
@@ -537,7 +553,8 @@ public class UI_Combat : MonoBehaviour {
             case ActionType.Attack:
                 if ( enemyShieldActive ) {
                     enemyShieldActive = false;
-                    return;
+                    UpdateGUI();
+                    enemyHealth += playerSelectedAction.actionIntensity;
                 }
                 TransitionEnemyAnimation(EnemyAnimation.Hurt);
                 break;
@@ -547,26 +564,39 @@ public class UI_Combat : MonoBehaviour {
 
         enemyHealth -= playerSelectedAction.actionIntensity;
     }
+ 
+    private void ProcessPlayerActionChance() {
+        int result = prng.Next(100);
 
-    private void ProcessEnemyAction() {
+        if (playerTurnChance > 0 && result <= (int)(playerTurnChance * 100)) {
+            TransitionCombatState(CombatState.PlayerMove);
+        } else {
+            TransitionCombatState(CombatState.EnemyMove);
+        }
+    }
+
+    private void ProcessEnemyActionEffect() {
         switch (enemySelectedAction.passive) {
             case PassiveEffect.Burn:
-                return;
+                break;
             case PassiveEffect.Heal:
-                return;
+                break;
             case PassiveEffect.Shield:
-                return;
+                enemyShieldActive = true;
+                UpdateGUI();
+                break;
         }
 
         switch (enemySelectedAction.actionType) {
             case ActionType.Attack:
                 if ( playerShieldActive ) {
                     playerShieldActive = false;
+                    UpdateGUI();
                     return;
                 }
-                return;
+                break;
             case ActionType.Other:
-                return;
+                break;
         }
 
         playerHealth -= enemySelectedAction.actionIntensity;
@@ -576,6 +606,9 @@ public class UI_Combat : MonoBehaviour {
         enemyHealthBar.SetBarFill(enemyHealth/enemy.health);
         healthBar.SetBarFill(playerHealth/playerHealthMax);
         actionBar.SetBarFill(playerTurnChance/playerTurnDefault);
+
+        playerShield.SetActive(playerShieldActive);
+        enemyShield.SetActive(enemyShieldActive);
     }
 
     void Update() {
