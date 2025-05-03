@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class MI_DoorInteractable : MonoBehaviour, IInteractable
 {
-    //Position to move the character to
     public Transform targetLocation;
     public GameObject player;
-    public bool canEnter;
+    public bool canEnter = false;
+
+    [Header("Require Dialogue")]
+    public DialogueController dialogueController;
 
     private void Start()
     {
@@ -14,7 +16,15 @@ public class MI_DoorInteractable : MonoBehaviour, IInteractable
         {
             Debug.LogError("No GameObject with tag 'Player' found!");
         }
-        canEnter = true;
+
+        if (dialogueController != null)
+        {
+            dialogueController.OnDialogueEnd.AddListener(EnableDoor);
+        }
+        else
+        {
+            Debug.LogWarning("DialogueController not assigned to door!");
+        }
     }
 
     public void Interact()
@@ -22,15 +32,20 @@ public class MI_DoorInteractable : MonoBehaviour, IInteractable
         if (player != null && targetLocation != null && canEnter)
         {
             player.transform.position = targetLocation.position;
-            
         }
         else if (!canEnter)
         {
-            Debug.Log("Player Cant enter");
+            Debug.Log("Player can't enter — dialogue must be finished.");
         }
         else
         {
             Debug.LogWarning("Player or Target Location not set!");
         }
+    }
+
+    private void EnableDoor()
+    {
+        canEnter = true;
+        Debug.Log("Door unlocked after dialogue.");
     }
 }
