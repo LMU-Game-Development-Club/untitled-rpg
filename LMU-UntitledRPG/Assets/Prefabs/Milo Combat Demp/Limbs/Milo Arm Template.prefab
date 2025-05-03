@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limbName: 
-  attacks: []
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
   limbHealth: 0
   limbMaxHealth: 0
   isBroken: 0
   limbMaxCooldown: 0
+  limbCooldown: 0
   limbDescription: 

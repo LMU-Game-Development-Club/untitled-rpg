@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3085304868451965335
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 674719525672016014, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_Name
+      value: PottedPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959194350279522630, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: attack1
+      value: 
+      objectReference: {fileID: 1661462110815756653, guid: e79779b434137424abd3a96cac3ecbdd, type: 3}
+    - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: attack2
+      value: 
+      objectReference: {fileID: 2401289638226376908, guid: cd02dc9801d59a44599fd818ae619af0, type: 3}
+    - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: limbName
+      value: PottedPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438239092084696250, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
+      propertyPath: limbDescription
+      value: Hitting them with your green thumb.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3352181fcdc6547e4b4c88bc87802dd1, type: 3}
