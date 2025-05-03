@@ -46,3 +46,9 @@ MonoBehaviour:
     IsPlayerLine: 0
     NextLineIDs:
     - 5
+  - LineID: 5
+    CharacterName: Urn
+    LineText: Behold! Thy blade. Fruit-born, soft-skinned... but hold it firm. It
+      bruises well
+    IsPlayerLine: 0
+    NextLineIDs: []

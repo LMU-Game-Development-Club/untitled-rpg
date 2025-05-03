@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239df5a020a20f64b85ad5aecfa596bf, type: 3}
+  m_Name: GetBanana
+  m_EditorClassIdentifier: 
+  Lines:
+  - LineID: 0
+    CharacterName: Urn
+    LineText: Take it!
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 1
+    - 2
+    - 3
+  - LineID: 1
+    CharacterName: Urn
+    LineText: '...This is a joke?
+
+'
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 4
+  - LineID: 3
+    CharacterName: Urn
+    LineText: 'What am I training for?
+
+'
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 4
+  - LineID: 4
+    CharacterName: Urn
+    LineText: 'War walks. War wakes. War waits. Ask not what it is, ask when it comes.
+
+'
+    IsPlayerLine: 1
+    NextLineIDs: []
