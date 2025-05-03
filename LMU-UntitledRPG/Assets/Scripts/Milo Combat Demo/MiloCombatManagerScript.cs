@@ -26,6 +26,9 @@ public class MiloCombatManagerScript : MonoBehaviour
 
     private GameObject selectedLimb;
     private GameObject selectedAttack;
+
+
+    public Image TurnBarImage;
     
     // TODO: Add limb cooldown logic
     void Start()
@@ -99,7 +102,7 @@ public class MiloCombatManagerScript : MonoBehaviour
             armScript.limbHealth = Mathf.Min(armScript.limbHealth + hatScript.HealingPerAttack, armScript.limbMaxHealth);
             Debug.Log(armScript.limbName + " healed for " + hatScript.HealingPerAttack + " health.");
             
-            // If arm was broken and now has health, restore it
+            // If arm was broken and nowhas health, restore it
             if (armScript.limbHealth > 0 && armScript.isBroken)
             {
                 armScript.isBroken = false;
@@ -111,6 +114,7 @@ public class MiloCombatManagerScript : MonoBehaviour
         float turnDecayReduction = hatScript != null ? hatScript.TurnModifier : 0f;
         playerNextTurnPercent -= Mathf.Max(0, attack.turnDecay - turnDecayReduction);
         turnMeter.text = "Player turn chance: " + playerNextTurnPercent + "%";
+        UpdateTurnBar();
 
         CheckEnemyDefeat();
         DetermineNextTurn();
@@ -124,6 +128,11 @@ public class MiloCombatManagerScript : MonoBehaviour
             // Load a temporary scene or victory screen
             GameManager.Instance.LoadEx();
         }
+    }
+
+    void UpdateTurnBar(){
+        float fill = Mathf.Clamp01(playerNextTurnPercent / 100f);
+        TurnBarImage.fillAmount = fill;
     }
 
     void CheckPlayerDefeat()
@@ -143,6 +152,7 @@ public class MiloCombatManagerScript : MonoBehaviour
 
             playerNextTurnPercent = 100f;
             turnMeter.text = "Player turn chance: " + playerNextTurnPercent + "%";
+            UpdateTurnBar();
         }
     }
 
