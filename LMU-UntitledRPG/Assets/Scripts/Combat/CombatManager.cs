@@ -149,7 +149,7 @@ public class CombatManager : MonoBehaviour
         {
             Debug.Log("Enemy defeated!");
 
-            GameManager.Instance.LoadEx();
+            GameManager.Instance.LoadExhibit1();
         }
     }
 

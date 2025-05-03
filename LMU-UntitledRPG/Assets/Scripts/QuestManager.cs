@@ -1,50 +1,35 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System.Collections.Generic;
 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
-
-    private Dictionary<string, Quest> quests = new Dictionary<string, Quest>();
+    private Quest activeQuest;
+    public TextMeshProUGUI questText;  
+    [SerializeField] public List<Quest> quests;
+    private int currentQuestIndex = 0;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public void AddQuest(string questID, string title, string description)
-    {
-        if (!quests.ContainsKey(questID))
-        {
-            quests[questID] = new Quest(questID, title, description);
-            Debug.Log($"Quest added: {title}");
         }
     }
-
-    public void CompleteQuest(string questID)
+    private void Start()
     {
-        if (quests.ContainsKey(questID))
-        {
-            quests[questID].Complete();
-            Debug.Log($"Quest completed: {quests[questID].Title}");
-        }
+        questText.text = quests[currentQuestIndex].description;
     }
 
-    public Quest GetQuest(string questID)
-    {
-        quests.TryGetValue(questID, out Quest quest);
-        return quest;
-    }
-
-    public List<Quest> GetAllQuests()
-    {
-        return new List<Quest>(quests.Values);
+    public void UpdateQuest(){
+        currentQuestIndex++;
+        questText.text = quests[currentQuestIndex].description;
     }
 }

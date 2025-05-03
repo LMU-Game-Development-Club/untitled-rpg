@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
     [SerializeField] public RectTransform fader;
-    
+    [SerializeField] public GameObject Combat;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+            Combat.SetActive(false);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
@@ -24,25 +28,23 @@ public class GameManager : MonoBehaviour
     {
         if (fader != null)
         {
+            fader.localScale = Vector3.one;
             fader.gameObject.SetActive(true);
-            LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
-            LeanTween.scale(fader, Vector3.zero, 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
-            {
-                fader.gameObject.SetActive(false);
-            });
+
+            LeanTween.scale(fader, Vector3.zero, 0.5f)
+                .setEase(LeanTweenType.easeInOutQuad)
+                .setOnComplete(() => fader.gameObject.SetActive(false));
         }
     }
-
 
     private void OnDestroy()
     {
         if (Instance == this)
         {
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 
-    // Use to load exhibits
     public void LoadExhibit(Exhibit exhibit)
     {
         string sceneName = GetExhibitName(exhibit);
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadCombat()
     {
-        ChangeScene("Combat");
+        StartCoroutine(CombatEnterRoutine());
     }
 
     public void LoadMainMenu()
@@ -66,22 +68,70 @@ public class GameManager : MonoBehaviour
         ChangeScene("MainMenu");
     }
 
-    public void LoadEx(){
-        ChangeScene("Exhibit1");
+    public void LoadExhibit1()
+    {
+        StartCoroutine(CombatExitRoutine());
     }
 
     private void ChangeScene(string sceneName)
     {
-        fader.gameObject.SetActive(true);
-        LeanTween.scale(fader, Vector3.zero, 0f);
-        LeanTween.scale(fader, new Vector3(1,1,1), 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-        });
+        StartCoroutine(SceneTransitionRoutine(sceneName));
     }
 
     private string GetExhibitName(Exhibit exhibit)
     {
-        return exhibit.ToString(); // Assuming the scene names match the enum names
+        return exhibit.ToString(); // Assuming scene names match enum names
+    }
+
+    private IEnumerator SceneTransitionRoutine(string sceneName)
+    {
+        yield return StartCoroutine(FadeToBlack());
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private IEnumerator CombatEnterRoutine()
+    {
+        yield return StartCoroutine(FadeToBlack());
+
+        Combat.SetActive(true);
+        
+        yield return new WaitForSeconds(0.3f); // Optional pause
+        yield return StartCoroutine(FadeFromBlack());
+    }
+
+    private IEnumerator CombatExitRoutine()
+    {
+        yield return StartCoroutine(FadeToBlack());
+
+        Combat.SetActive(false);
+
+        yield return new WaitForSeconds(0.3f); // Optional pause
+        yield return StartCoroutine(FadeFromBlack());
+    }
+
+    private IEnumerator FadeToBlack()
+    {
+        fader.localScale = Vector3.zero;
+        fader.gameObject.SetActive(true);
+
+        bool complete = false;
+        LeanTween.scale(fader, Vector3.one, 0.5f)
+            .setEase(LeanTweenType.easeInOutQuad)
+            .setOnComplete(() => complete = true);
+
+        yield return new WaitUntil(() => complete);
+    }
+
+    private IEnumerator FadeFromBlack()
+    {
+        bool complete = false;
+        LeanTween.scale(fader, Vector3.zero, 0.5f)
+            .setEase(LeanTweenType.easeInOutQuad)
+            .setOnComplete(() => {
+                fader.gameObject.SetActive(false);
+                complete = true;
+            });
+
+        yield return new WaitUntil(() => complete);
     }
 }

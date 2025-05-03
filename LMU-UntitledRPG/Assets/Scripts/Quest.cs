@@ -1,21 +1,24 @@
-[System.Serializable]
-public class Quest
-{
-    public string ID { get; private set; }
-    public string Title { get; private set; }
-    public string Description { get; private set; }
-    public bool IsCompleted { get; private set; }
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-    public Quest(string id, string title, string description)
+public class Quest : MonoBehaviour
+{
+    public string title;
+    [TextArea] public string description;
+    public bool isCompleted;
+    public bool isActive;
+
+    public void Activate()
     {
-        ID = id;
-        Title = title;
-        Description = description;
-        IsCompleted = false;
+        isActive = true;
+        Debug.Log($"Quest Activated: {title}");
     }
 
     public void Complete()
     {
-        IsCompleted = true;
+        isCompleted = true;
+        isActive = false;
+        Debug.Log($"Quest Completed: {title}");
     }
 }
