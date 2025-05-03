@@ -107,6 +107,11 @@ public class GameManager : MonoBehaviour
         // Knight
         // Priest
         // Soldier
+
+        yield return null;
+
+        combatSystem.Init();
+
         combatSystem.StartCombat(combatEnemyName);
         
         yield return new WaitForSeconds(0.3f); // Optional pause

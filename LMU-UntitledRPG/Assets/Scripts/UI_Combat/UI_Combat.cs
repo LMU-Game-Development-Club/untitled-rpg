@@ -234,7 +234,7 @@ public class UI_Combat : MonoBehaviour {
         }
     }
 
-    void Start() {
+    public void Init() {
         prng = new System.Random(0);
 
         if (PlayerLoseCombat == null) {
@@ -257,6 +257,10 @@ public class UI_Combat : MonoBehaviour {
         actionBar = transform.Find("TurnBar").GetComponent<UI_CombatBar>();
         actionBar.SetBarFill(1);
         playerTurnChance = playerTurnDefault;
+
+        if (enemyRenderer == null) {
+            Debug.LogError("EnemyRenderer not found or missing Image component!");
+        }
 
         enemyRenderer = transform.Find("EnemyRenderer").GetComponent<Image>();
 
