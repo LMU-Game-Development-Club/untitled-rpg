@@ -189,9 +189,16 @@ public class UI_Combat : MonoBehaviour {
     private float playerTurnDefault = 1;
     private float enemyHealth;
 
+    //Ik this is botched but whaevert
+    private bool playerShieldActive;
+    private bool enemyShieldActive;
+
     public void StartCombat(string enemyName) {
         enemy = FindEnemy(enemyName);
         if (enemy.name != "Empty") {
+            playerShieldActive = false;
+            enemyShieldActive = false;
+
             enemyRenderer.sprite = enemy.idleSprites[0];
             enemySet = true;
             switch (enemy.weapon) {
@@ -308,7 +315,7 @@ public class UI_Combat : MonoBehaviour {
                 TransitionPlayerGUI(PlayerGUI.MainView);
                 break;
             case CombatState.PlayerActionSequence:
-                TransitionEnemyAnimation(EnemyAnimation.Hurt);
+                ProcessPlayerAction();
                 playerActionSequenceEnd = localTime + playerActionSequenceLength;
                 break;
             case CombatState.EnemyMove:
@@ -411,7 +418,6 @@ public class UI_Combat : MonoBehaviour {
                 break;
             case CombatState.PlayerActionSequence:
                 if (localTime > playerActionSequenceEnd) {
-                    ProcessPlayerAction();
                     TransitionCombatState(CombatState.EnemyMove);
                 }
                 break;
@@ -519,11 +525,24 @@ public class UI_Combat : MonoBehaviour {
     private void ProcessPlayerAction() {
         switch (playerSelectedAction.passive) {
             case PassiveEffect.Burn:
-                return;
+                break;
             case PassiveEffect.Heal:
-                return;
+                break;
             case PassiveEffect.Shield:
-                return;
+                playerShieldActive = true;
+                break;
+        }
+
+        switch (playerSelectedAction.actionType) {
+            case ActionType.Attack:
+                if ( enemyShieldActive ) {
+                    enemyShieldActive = false;
+                    return;
+                }
+                TransitionEnemyAnimation(EnemyAnimation.Hurt);
+                break;
+            case ActionType.Other:
+                break;
         }
 
         enemyHealth -= playerSelectedAction.actionIntensity;
@@ -536,6 +555,17 @@ public class UI_Combat : MonoBehaviour {
             case PassiveEffect.Heal:
                 return;
             case PassiveEffect.Shield:
+                return;
+        }
+
+        switch (enemySelectedAction.actionType) {
+            case ActionType.Attack:
+                if ( playerShieldActive ) {
+                    playerShieldActive = false;
+                    return;
+                }
+                return;
+            case ActionType.Other:
                 return;
         }
 

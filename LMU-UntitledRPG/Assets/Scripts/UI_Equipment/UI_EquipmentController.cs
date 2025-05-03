@@ -102,7 +102,6 @@ public class UI_EquipmentController : MonoBehaviour
                     Inventory.Remove(item);
                     UpdateInventoryContainer();
                     UpdateSlots();
-                    EquipmentChanged.Invoke();
                 }
             }
         }
@@ -160,5 +159,7 @@ public class UI_EquipmentController : MonoBehaviour
             HandSlotRenderer.color = Color.white;
             HandSlotRenderer.sprite = HandSlot.icon;
         }
+
+        EquipmentChanged.Invoke();
     }
 }
