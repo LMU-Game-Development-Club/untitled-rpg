@@ -142,14 +142,16 @@ public class CombatManager : MonoBehaviour
         EnemyHealthBarImage.fillAmount = fill;
     }
 
-void CheckEnemyDefeat()
-{
-    var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
-    if (enemyScript.health <= 0)
+    void CheckEnemyDefeat()
     {
-        GameManager.Instance.EndCombat();
+        var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
+        if (enemyScript.health <= 0)
+        {
+            Debug.Log("Enemy defeated!");
+
+            GameManager.Instance.LoadEx();
+        }
     }
-}
 
     void CheckPlayerDefeat()
     {
