@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public RectTransform fader;
     [SerializeField] public UI_Combat combatSystem;
+    public GameObject combat_ui;
 
     public string combatEnemyName;
 
@@ -97,9 +98,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CombatEnterRoutine()
     {
+        Debug.Log("yipeeeee");
         yield return StartCoroutine(FadeToBlack());
 
+        combat_ui.SetActive(true);
         combatSystem.gameObject.SetActive(true);
+
 
         //Here put which combat you wanna start
         // rn there are the following options:

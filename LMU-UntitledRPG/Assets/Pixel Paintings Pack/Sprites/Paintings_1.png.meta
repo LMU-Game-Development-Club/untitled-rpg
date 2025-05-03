@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: aad9f92a032a048458c1abe226a6a3b8
+AssetOrigin:
+  serializedVersion: 1
+  productId: 316873
+  packageName: "Pixel Paintings Pack \u2013 Framed Art for Cozy Interiors"
+  packageVersion: 1.0
+  assetPath: Assets/Pixel Paintings Pack/Sprites/Paintings_1.png
+  uploadId: 749217
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -87,7 +94,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -466,10 +473,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 316873
-  packageName: "Pixel Paintings Pack \u2013 Framed Art for Cozy Interiors"
-  packageVersion: 1.0
-  assetPath: Assets/Pixel Paintings Pack/Sprites/Paintings_1.png
-  uploadId: 749217
