@@ -146,6 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4050592502026516803}
   - component: {fileID: 9175662130065369657}
+  - component: {fileID: 7937640802534635923}
   m_Layer: 5
   m_Name: InventoryItem
   m_TagString: UIElement
@@ -185,6 +186,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2978962541693753781}
   m_CullTransparentMesh: 1
+--- !u!114 &7937640802534635923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978962541693753781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa40e0863b2d747efbcab6ce3c625d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: 
+  damage: 0
+  element: 
+  elementDamage: 0
+  status: 
+  statusBuildUp: 0
+  turnDecay: 0
+  attackDescription: 
 --- !u!1 &4464696309223359487
 GameObject:
   m_ObjectHideFlags: 0

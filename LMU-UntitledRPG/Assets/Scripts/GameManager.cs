@@ -4,15 +4,18 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
     [SerializeField] public RectTransform fader;
-    
+    [SerializeField] private GameObject combatPrefab; 
+    private GameObject activeCombat;
+    private CanvasGroup combatCanvasGroup;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
@@ -20,35 +23,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (fader != null)
-        {
-            fader.gameObject.SetActive(true);
-            LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
-            LeanTween.scale(fader, Vector3.zero, 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
-            {
-                fader.gameObject.SetActive(false);
-            });
-        }
-    }
-
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
-    }
-
-    // Use to load exhibits
     public void LoadExhibit(Exhibit exhibit)
     {
         string sceneName = GetExhibitName(exhibit);
         if (!string.IsNullOrEmpty(sceneName))
         {
-            ChangeScene(sceneName);
+            SceneManager.LoadScene(sceneName);
         }
         else
         {
@@ -56,32 +36,56 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadCombat()
-    {
-        ChangeScene("Combat");
-    }
-
     public void LoadMainMenu()
     {
-        ChangeScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 
-    public void LoadEx(){
-        ChangeScene("Exhibit1");
-    }
-
-    private void ChangeScene(string sceneName)
+    public void LoadEx()
     {
-        fader.gameObject.SetActive(true);
-        LeanTween.scale(fader, Vector3.zero, 0f);
-        LeanTween.scale(fader, new Vector3(1,1,1), 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-        });
+        SceneManager.LoadScene("Exhibit1");
     }
 
     private string GetExhibitName(Exhibit exhibit)
     {
-        return exhibit.ToString(); // Assuming the scene names match the enum names
+        return exhibit.ToString(); // Assuming the scene names match enum names
+    }
+
+    // ------------------- Combat Management -------------------
+
+    public void LoadCombat()
+    {
+        if (activeCombat == null && combatPrefab != null)
+        {
+            activeCombat = Instantiate(combatPrefab, transform);
+            combatCanvasGroup = activeCombat.GetComponent<CanvasGroup>();
+            if (combatCanvasGroup != null)
+            {
+                combatCanvasGroup.alpha = 0;
+                combatCanvasGroup.interactable = false;
+                combatCanvasGroup.blocksRaycasts = false;
+
+                LeanTween.alphaCanvas(combatCanvasGroup, 1f, 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
+                {
+                    combatCanvasGroup.interactable = true;
+                    combatCanvasGroup.blocksRaycasts = true;
+                });
+            }
+        }
+    }
+
+    public void EndCombat()
+    {
+        if (activeCombat != null && combatCanvasGroup != null)
+        {
+            combatCanvasGroup.interactable = false;
+            combatCanvasGroup.blocksRaycasts = false;
+
+            LeanTween.alphaCanvas(combatCanvasGroup, 0f, 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
+            {
+                Destroy(activeCombat);
+                activeCombat = null;
+            });
+        }
     }
 }

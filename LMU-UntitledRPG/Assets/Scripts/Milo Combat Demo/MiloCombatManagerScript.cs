@@ -11,7 +11,7 @@ public class MiloCombatManagerScript : MonoBehaviour
     public List<GameObject> inventoryItems;
     public GameObject head;
     public GameObject arm;
-    public TextMeshProUGUI limbDescription;
+    // public TextMeshProUGUI limbDescription;
     public TextMeshProUGUI attack1;
     public TextMeshProUGUI attack2;
     public TextMeshProUGUI enemyHealth;
@@ -22,7 +22,7 @@ public class MiloCombatManagerScript : MonoBehaviour
     public Button heavyAttackButton;
     public int lives;
     private float playerNextTurnPercent;
-    public GameObject equipmentCanvas;
+    // public GameObject equipmentCanvas;
 
     private GameObject selectedLimb;
     private GameObject selectedAttack;
@@ -38,8 +38,8 @@ public class MiloCombatManagerScript : MonoBehaviour
         var enemyScript = enemy.GetComponent<MiloEnemyScriptTemplate>();
         enemyHealth.text = "Enemy HP: " + enemyScript.health;
 
-        headSprite.onClick.AddListener(OnLimbClicked);
-        armSprite.onClick.AddListener(OnLimbClicked);
+        // headSprite.onClick.AddListener(OnLimbClicked);
+        // armSprite.onClick.AddListener(OnLimbClicked);
 
         lightAttackButton.onClick.AddListener(() => OnAttackSelected(0));
         heavyAttackButton.onClick.AddListener(() => OnAttackSelected(1));
@@ -48,10 +48,10 @@ public class MiloCombatManagerScript : MonoBehaviour
         ArmSelected(armSprite);
     }
 
-    void OnLimbClicked()
-    {
-        equipmentCanvas.SetActive(true);
-    }
+    // void OnLimbClicked()
+    // {
+    //     equipmentCanvas.SetActive(true);
+    // }
 
     void ArmSelected(Button limbButton)
     {
@@ -59,7 +59,7 @@ public class MiloCombatManagerScript : MonoBehaviour
         selectedLimb = limbType == "head" ? head : arm;
         var limbScript = selectedLimb.GetComponent<MiloLimbScriptTemplate>();
 
-        limbDescription.text = limbScript.limbDescription;
+        // limbDescription.text = limbScript.limbDescription;
         attack1.text = limbScript.attack1.name;
         attack2.text = limbScript.attack2.name;
     }
@@ -132,6 +132,11 @@ public class MiloCombatManagerScript : MonoBehaviour
 
     void UpdateTurnBar(){
         float fill = Mathf.Clamp01(playerNextTurnPercent / 100f);
+        TurnBarImage.fillAmount = fill;
+    }
+
+    void UpdateHealthBar(int health){
+        float fill = Mathf.Clamp01(health / 100f);
         TurnBarImage.fillAmount = fill;
     }
 
@@ -210,6 +215,6 @@ public class MiloCombatManagerScript : MonoBehaviour
         {
             Debug.LogWarning("Invalid limb type: " + limbType);
         }
-        equipmentCanvas.SetActive(false);
+        // equipmentCanvas.SetActive(false);
     }
 }
