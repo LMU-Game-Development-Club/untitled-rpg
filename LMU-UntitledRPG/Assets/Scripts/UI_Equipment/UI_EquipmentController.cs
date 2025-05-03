@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UI_EquipmentController : MonoBehaviour
@@ -14,20 +15,22 @@ public class UI_EquipmentController : MonoBehaviour
     // Names must be unique
     [Serializable]
     public struct EquipmentUIItem {
-        public EquipmentUIItem(string a, string b, Sprite c, EquipmentType d) {
+        public EquipmentUIItem(string a, string b, string erm, Sprite c, EquipmentType d) {
             name = a;
             description = b;
+            action = erm;
             icon = c;
             type = d;
         }
 
         public string name;
         public string description;
+        public string action;
         public Sprite icon;
         public EquipmentType type;
     }
 
-    private static EquipmentUIItem EmptyItem = new EquipmentUIItem("Empty", null, null, EquipmentType.Head);
+    private static EquipmentUIItem EmptyItem = new EquipmentUIItem("Empty", "No Equipment Equipped", null, null, EquipmentType.Head);
 
     [Header("Refs")]
     public GameObject InventoryItemPrefab;
@@ -45,9 +48,23 @@ public class UI_EquipmentController : MonoBehaviour
     public EquipmentUIItem HeadSlot = EmptyItem;
     public EquipmentUIItem HandSlot = EmptyItem;
 
+    public UnityEvent EquipmentExit;
+    public UnityEvent EquipmentChanged;
+
     private Canvas canvas;
+    private UI_CombatOnClick backButton;
 
     void Start() {
+        if (EquipmentExit == null) {
+            EquipmentExit = new UnityEvent();
+        }
+        if (EquipmentChanged == null) {
+            EquipmentChanged = new UnityEvent();
+        }
+
+        backButton = transform.Find("BackButton").GetComponent<UI_CombatOnClick>();
+        backButton.onClick.AddListener(() => { EquipmentExit.Invoke(); });
+
         canvas = GetComponent<Canvas>();
         UpdateInventoryContainer();
         UpdateSlots();
@@ -85,6 +102,7 @@ public class UI_EquipmentController : MonoBehaviour
                     Inventory.Remove(item);
                     UpdateInventoryContainer();
                     UpdateSlots();
+                    EquipmentChanged.Invoke();
                 }
             }
         }
@@ -127,17 +145,12 @@ public class UI_EquipmentController : MonoBehaviour
     }
 
     void UpdateSlots() {    
-        MiloCombatManagerScript combatManager = transform.parent.GetComponent<MiloCombatManagerScript>();
         if (HeadSlot.name == "Empty") {
             HeadSlotRenderer.color = Color.black;
             HeadSlotRenderer.sprite = null;
         } else {
             HeadSlotRenderer.color = Color.white;
             HeadSlotRenderer.sprite = HeadSlot.icon;
-
-            if (combatManager != null) {
-                combatManager.limbChanged("Head", HeadSlot.name);
-            }
         }
 
         if (HandSlot.name == "Empty") {
@@ -146,10 +159,6 @@ public class UI_EquipmentController : MonoBehaviour
         } else {
             HandSlotRenderer.color = Color.white;
             HandSlotRenderer.sprite = HandSlot.icon;
-
-            if (combatManager != null) {
-                combatManager.limbChanged("Hand", HandSlot.name);
-            }
         }
     }
 }
