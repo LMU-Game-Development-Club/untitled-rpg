@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239df5a020a20f64b85ad5aecfa596bf, type: 3}
+  m_Name: PuzzleDialogue1
+  m_EditorClassIdentifier: 
+  Lines:
+  - LineID: 0
+    CharacterName: Bearded Man
+    LineText: Stop-ith traveler, Praytell, might thou have-ith the time to assist
+      me in my peril? My comrades have lost the color in their apparel, might though
+      be able to scour the lands and findith their color. If though succeeds, I may
+      grant a piece of weaponry to aid you on your journey.
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 1
+  - LineID: 1
+    CharacterName: BeardedMan
+    LineText: "I don\u2019t know how to fix the corruption."
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 2
+  - LineID: 2
+    CharacterName: BeardedMan
+    LineText: I could teach you if you bring me the items I need. Seek the Red, the
+      Green, the Blue. Each hue clutched tight by strangers wandering far from their
+      own walls.
+    IsPlayerLine: 0
+    NextLineIDs: []

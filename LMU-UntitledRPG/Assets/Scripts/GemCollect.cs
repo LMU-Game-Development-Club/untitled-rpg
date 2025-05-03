@@ -7,7 +7,15 @@ public class GemCollect : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        GameManager.Instance.gems.Add(gem);
-        Destroy(this.gameObject);
+        if(GameManager.Instance.gems.Count == 0)
+        {
+            GameManager.Instance.gems.Add(gem);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            //Debug message
+            Debug.Log("Already holding a gem");
+        }
     }
 }
