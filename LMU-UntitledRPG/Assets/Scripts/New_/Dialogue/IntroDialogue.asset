@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239df5a020a20f64b85ad5aecfa596bf, type: 3}
+  m_Name: IntroDialogue
+  m_EditorClassIdentifier: 
+  Lines:
+  - LineID: 0
+    CharacterName: Urn
+    LineText: Wake, wretch of canvas. Stitched sour, stir. The hour grows gaunt.
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 1
+  - LineID: 1
+    CharacterName: Urn
+    LineText: A hum of power, a crack of light. You live!
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 2
+  - LineID: 2
+    CharacterName: Urn
+    LineText: Bones of burlap, limbs of wire, come, creak and crawl. No time to dream.
+      Doom is breathing down the hall.
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 3
+  - LineID: 3
+    CharacterName: Urn
+    LineText: Huh?
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 4
+  - LineID: 4
+    CharacterName: Urn
+    LineText: "Come, up now. Left, first. Drag thy shell through the dust. Right,
+      shuffle from death\u2019s embrace. Give it a try."
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 5
+    - 6
+    - 7
+  - LineID: 5
+    CharacterName: Urn
+    LineText: "Why do I feel\u2026 heavy?"
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 8
+  - LineID: 6
+    CharacterName: Urn
+    LineText: What are you?
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 8
+  - LineID: 7
+    CharacterName: Urn
+    LineText: Where am I?
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 8
+  - LineID: 8
+    CharacterName: Urn
+    LineText: You ask like a child, lips full of ash. Question later, now come.
+    IsPlayerLine: 0
+    NextLineIDs: []

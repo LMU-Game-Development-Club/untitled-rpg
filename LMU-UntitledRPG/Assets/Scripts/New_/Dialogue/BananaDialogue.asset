@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239df5a020a20f64b85ad5aecfa596bf, type: 3}
+  m_Name: BananaDialogue
+  m_EditorClassIdentifier: 
+  Lines:
+  - LineID: 0
+    CharacterName: Urn
+    LineText: ' Took your time, I feared I may grow old in age
+
+'
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 1
+    - 2
+  - LineID: 1
+    CharacterName: Urn
+    LineText: How did you end up out here?
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 3
+  - LineID: 2
+    CharacterName: Urn
+    LineText: Can an Urn even age?
+    IsPlayerLine: 1
+    NextLineIDs:
+    - 4
+  - LineID: 3
+    CharacterName: Urn
+    LineText: As I always have?
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 5
+  - LineID: 4
+    CharacterName: Urn
+    LineText: Tis not a polite question to ask tsk tsk
+    IsPlayerLine: 0
+    NextLineIDs:
+    - 5

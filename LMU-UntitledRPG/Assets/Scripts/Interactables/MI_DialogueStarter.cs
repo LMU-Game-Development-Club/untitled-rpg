@@ -1,15 +1,24 @@
 using UnityEngine;
 
-public class MI_DialogueStarter : MonoBehaviour, IInteractable
-{
-    private UI_DialogueController dialogueController;
-    public string dialogueName;
+public class MI_DialogueTrigger : MonoBehaviour, IInteractable {
+    [Header("Dialogue Reference")]
+    public DialogueController dialogueController;
+    public string startLineID = "0";
+
     private void Start() {
-        UI_DialogueManager d = UI_DialogueManager.Instance;
-        dialogueController = d.transform.Find("DialogueController").GetComponent<UI_DialogueController>();
-    }
-    public void Interact() {
-        dialogueController.StartDialogue(dialogueName);
+        if (dialogueController == null) {
+            dialogueController = FindObjectOfType<DialogueController>();
+            if (dialogueController == null) {
+                Debug.LogError("No DialogueController found in scene.");
+            }
+        }
     }
 
+    public void Interact() {
+        if (dialogueController != null) {
+            dialogueController.Play(startLineID);
+        } else {
+            Debug.LogWarning("DialogueController not set.");
+        }
+    }
 }
