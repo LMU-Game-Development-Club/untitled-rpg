@@ -46,11 +46,9 @@ public class UI_EquipmentController : MonoBehaviour
     public EquipmentUIItem HandSlot = EmptyItem;
 
     private Canvas canvas;
-    private float canvasScaleFactor;
 
     void Start() {
         canvas = GetComponent<Canvas>();
-        canvasScaleFactor = canvas.scaleFactor;
         UpdateInventoryContainer();
         UpdateSlots();
 
@@ -60,7 +58,7 @@ public class UI_EquipmentController : MonoBehaviour
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            Vector2 mousePosition = new Vector2(Input.mousePosition.x / canvasScaleFactor, Input.mousePosition.y / canvasScaleFactor);
+            Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
             foreach ((Transform, EquipmentUIItem) pair in EquipmentContainers) {
                 Transform container = pair.Item1;
